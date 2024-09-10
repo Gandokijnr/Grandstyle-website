@@ -7,11 +7,11 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Footer: React.FC = () => {
   return (
-    <Box component="footer" sx={{ bgcolor: 'primary.main', color: 'white', py: 6 }}>
+    <Box component="footer" sx={{ bgcolor: 'black', color: 'white', py: 6 }}>
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           <Grid item xs={12} sm={4}>
-            <Typography variant="h6" gutterBottom fontWeight="bold">
+            <Typography variant="h6" gutterBottom fontWeight="bold" color="secondary">
               Grandstyle Events
             </Typography>
             <Typography variant="body2">
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <Typography variant="h6" gutterBottom fontWeight="bold">
+            <Typography variant="h6" gutterBottom fontWeight="bold" color="secondary">
               Quick Links
             </Typography>
             <Link href="#about" color="inherit" display="block" sx={{ mb: 1 }}>About Us</Link>
@@ -29,30 +29,30 @@ const Footer: React.FC = () => {
             <Link href="#contact" color="inherit" display="block">Contact Us</Link>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <Typography variant="h6" gutterBottom fontWeight="bold">
+            <Typography variant="h6" gutterBottom fontWeight="bold" color="secondary">
               Connect With Us
             </Typography>
             <Box>
-              <IconButton color="inherit" aria-label="Facebook" sx={{ mr: 1 }}>
+              <IconButton color="secondary" aria-label="Facebook" sx={{ mr: 1 }}>
                 <FacebookIcon />
               </IconButton>
-              <IconButton color="inherit" aria-label="Twitter" sx={{ mr: 1 }}>
+              <IconButton color="secondary" aria-label="Twitter" sx={{ mr: 1 }}>
                 <TwitterIcon />
               </IconButton>
-              <IconButton color="inherit" aria-label="Instagram" sx={{ mr: 1 }}>
+              <IconButton color="secondary" aria-label="Instagram" sx={{ mr: 1 }}>
                 <InstagramIcon />
               </IconButton>
-              <IconButton color="inherit" aria-label="LinkedIn">
+              <IconButton color="secondary" aria-label="LinkedIn">
                 <LinkedInIcon />
               </IconButton>
             </Box>
           </Grid>
         </Grid>
         <Box mt={5} textAlign="center">
-          <Typography variant="body2">
+          <Typography variant="body2" color="white">
             © 2023 Grandstyle Events. All rights reserved.
           </Typography>
-          <Typography variant="body2" sx={{ mt: 1, fontStyle: 'italic' }}>
+          <Typography variant="body2" sx={{ mt: 1, fontStyle: 'italic', color: 'secondary.main' }}>
             Developed by Wintech
           </Typography>
         </Box>

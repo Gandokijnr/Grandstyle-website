@@ -35,7 +35,7 @@ const About: React.FC = () => {
                     <Typography variant="h4" mb={2} color="secondary">
                       {item.title}
                     </Typography>
-                    <Typography variant="body1">
+                    <Typography variant="body1" color="text.primary">
                       {item.content}
                     </Typography>
                   </Grid>

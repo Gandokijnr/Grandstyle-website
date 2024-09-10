@@ -29,14 +29,14 @@ const Header: React.FC = () => {
   const navItems = ['About', 'Services', 'Gallery', 'Testimonials', 'Contact'];
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', bgcolor: 'background.paper' }}>
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <Button
               component="a"
               href={`#${item.toLowerCase()}`}
-              sx={{ width: '100%', justifyContent: 'center' }}
+              sx={{ width: '100%', justifyContent: 'center', color: 'text.primary' }}
             >
               <ListItemText primary={item} />
             </Button>
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
       <AppBar 
         position="fixed" 
         sx={{
-          background: isScrolled ? 'rgba(255, 255, 255, 0.9)' : 'transparent',
+          background: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
           boxShadow: isScrolled ? 1 : 0,
           transition: 'all 0.3s ease-in-out',
         }}
@@ -68,7 +68,7 @@ const Header: React.FC = () => {
                 sx={{ 
                   color: isScrolled ? 'text.primary' : 'white',
                   '&:hover': {
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    backgroundColor: 'rgba(0, 86, 179, 0.1)',
                   },
                 }}
               >

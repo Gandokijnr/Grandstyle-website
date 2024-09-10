@@ -12,7 +12,7 @@ const services = [
 
 const Services: React.FC = () => {
   return (
-    <Box id="services" py={12} bgcolor="background.default">
+    <Box id="services" py={12} bgcolor="background.paper">
       <Container maxWidth="lg">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -39,7 +39,7 @@ const Services: React.FC = () => {
                     alt={service.title}
                   />
                   <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                    <Typography gutterBottom variant="h5" component="div" fontWeight="bold">
+                    <Typography gutterBottom variant="h5" component="div" fontWeight="bold" color="secondary">
                       {service.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">

@@ -14,26 +14,51 @@ import Footer from './components/Footer';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FF6B35', // A vibrant orange
+      main: '#0056b3', // Deep blue
     },
     secondary: {
-      main: '#004E89', // A deep blue
+      main: '#dc3545', // Red
     },
     background: {
-      default: '#FFFBF5', // A warm off-white
+      default: '#ffffff', // White
+      paper: '#f8f9fa', // Light gray for paper backgrounds
+    },
+    text: {
+      primary: '#000000', // Black
+      secondary: '#6c757d', // Dark gray for secondary text
     },
   },
   typography: {
-    fontFamily: '"Playfair Display", "Roboto", "Helvetica", "Arial", sans-serif',
-    h1: { fontWeight: 700, fontSize: '3.5rem' },
-    h2: { fontWeight: 700, fontSize: '3rem' },
-    h3: { fontWeight: 600, fontSize: '2.5rem' },
-    h4: { fontWeight: 600, fontSize: '2rem' },
-    h5: { fontWeight: 500, fontSize: '1.5rem' },
-    h6: { fontWeight: 500, fontSize: '1.25rem' },
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    h1: { fontWeight: 700, fontSize: '3.5rem', color: '#0056b3' },
+    h2: { fontWeight: 700, fontSize: '3rem', color: '#0056b3' },
+    h3: { fontWeight: 600, fontSize: '2.5rem', color: '#0056b3' },
+    h4: { fontWeight: 600, fontSize: '2rem', color: '#dc3545' },
+    h5: { fontWeight: 500, fontSize: '1.5rem', color: '#dc3545' },
+    h6: { fontWeight: 500, fontSize: '1.25rem', color: '#000000' },
     body1: { 
-      fontFamily: '"Lato", "Roboto", "Helvetica", "Arial", sans-serif',
       fontSize: '1.1rem',
+      color: '#000000',
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '30px',
+          textTransform: 'none',
+          fontWeight: 600,
+          padding: '10px 20px',
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: '16px',
+          boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+        },
+      },
     },
   },
 });
