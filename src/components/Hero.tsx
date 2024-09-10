@@ -46,10 +46,27 @@ const Hero: React.FC = () => {
             <div className="relative h-screen">
               <img src={slide.image} alt={slide.title} className="w-full h-screen object-cover" />
               <Box className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                <div className="text-center text-white px-4">
-                  <Typography variant="h2" className="mb-4 font-bold text-5xl md:text-6xl">{slide.title}</Typography>
-                  <Typography variant="h5" className="mb-8 text-xl md:text-2xl">{slide.subtitle}</Typography>
-                  <Button variant="contained" color="secondary" size="large" className="text-lg py-3 px-8 bg-yellow-500 hover:bg-yellow-600">
+                <div className="text-center px-4">
+                  <Typography 
+                    variant="h2" 
+                    className="mb-4 font-bold text-5xl md:text-6xl" 
+                    style={{ color: '#00CED1' }} // Inline style for dark turquoise
+                  >
+                    {slide.title}
+                  </Typography>
+                  <Typography 
+                    variant="h5" 
+                    className="mb-8 text-xl md:text-2xl" 
+                    style={{ color: 'white' }}
+                  >
+                    {slide.subtitle}
+                  </Typography>
+                  <Button 
+                    variant="contained" 
+                    color="secondary" 
+                    size="large" 
+                    className="text-lg py-3 px-8 bg-yellow-500 hover:bg-yellow-600"
+                  >
                     Plan Your Event
                   </Button>
                 </div>
