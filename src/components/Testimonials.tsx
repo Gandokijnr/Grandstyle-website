@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Box, Container, Card, CardContent, Rating } from '@mui/material';
+import { Typography, Box, Container, Card, CardContent, Avatar, Rating } from '@mui/material';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -23,30 +23,38 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <Box id="testimonials" className="py-32 bg-gradient-to-r from-purple-100 to-pink-100">
+    <Box id="testimonials" py={12} bgcolor="background.default">
       <Container maxWidth="lg">
-        <Typography variant="h3" className="mb-16 text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-          What Our Clients Say
-        </Typography>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Typography variant="h2" textAlign="center" mb={8} color="primary">
+            Client Testimonials
+          </Typography>
+        </motion.div>
         <Slider {...settings}>
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="px-8">
+            <div key={index}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <Card className="overflow-hidden shadow-xl rounded-xl">
-                  <CardContent className="p-8 flex flex-col md:flex-row items-center">
-                    <div className="md:w-1/3 mb-6 md:mb-0">
-                      <img src={testimonial.avatar} alt={testimonial.name} className="w-48 h-48 rounded-full object-cover mx-auto border-4 border-purple-300" />
-                    </div>
-                    <div className="md:w-2/3 md:pl-8">
-                      <Typography variant="body1" className="mb-4 text-xl italic text-gray-700">"{testimonial.text}"</Typography>
-                      <Typography variant="h6" className="font-bold text-purple-600">{testimonial.name}</Typography>
-                      <Typography variant="subtitle1" color="textSecondary" className="mb-2">{testimonial.role}</Typography>
-                      <Rating value={testimonial.rating} readOnly className="text-yellow-400" />
-                    </div>
+                <Card elevation={3} sx={{ borderRadius: '16px', overflow: 'hidden', mx: 2 }}>
+                  <CardContent sx={{ p: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <Avatar src={testimonial.avatar} sx={{ width: 100, height: 100, mb: 3 }} />
+                    <Typography variant="h6" gutterBottom fontWeight="bold" color="secondary">
+                      {testimonial.name}
+                    </Typography>
+                    <Typography variant="subtitle1" gutterBottom color="text.secondary">
+                      {testimonial.role}
+                    </Typography>
+                    <Rating value={testimonial.rating} readOnly sx={{ mb: 2 }} />
+                    <Typography variant="body1" textAlign="center" color="text.secondary">
+                      "{testimonial.text}"
+                    </Typography>
                   </CardContent>
                 </Card>
               </motion.div>

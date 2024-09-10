@@ -22,11 +22,17 @@ const awards = [
 
 const Awards: React.FC = () => {
   return (
-    <Box id="awards" className="py-24 bg-gradient-to-r from-blue-50 to-purple-50">
+    <Box id="awards" py={12} bgcolor="background.paper">
       <Container maxWidth="lg">
-        <Typography variant="h3" className="mb-16 text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-          Awards and Recognition
-        </Typography>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Typography variant="h2" textAlign="center" mb={8} color="primary">
+            Awards and Recognition
+          </Typography>
+        </motion.div>
         <Grid container spacing={4}>
           {awards.map((award, index) => (
             <Grid item xs={12} md={4} key={index}>
@@ -35,10 +41,16 @@ const Awards: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
               >
-                <Paper elevation={3} className="p-6 rounded-lg h-full flex flex-col">
-                  <img src={award.image} alt={award.title} className="w-full h-48 object-cover rounded-t-lg mb-4" />
-                  <Typography variant="h5" className="mb-2 font-bold text-purple-600">{award.title}</Typography>
-                  <Typography variant="body1" className="flex-grow">{award.description}</Typography>
+                <Paper elevation={3} sx={{ borderRadius: '16px', overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  <img src={award.image} alt={award.title} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                  <Box p={3}>
+                    <Typography variant="h5" gutterBottom fontWeight="bold" color="secondary">
+                      {award.title}
+                    </Typography>
+                    <Typography variant="body1">
+                      {award.description}
+                    </Typography>
+                  </Box>
                 </Paper>
               </motion.div>
             </Grid>

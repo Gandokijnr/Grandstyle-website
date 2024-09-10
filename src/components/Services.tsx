@@ -1,8 +1,6 @@
 import React from 'react';
-import { Typography, Box, Container } from '@mui/material';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { Typography, Box, Container, Grid, Card, CardContent, CardMedia } from '@mui/material';
+import { motion } from 'framer-motion';
 
 const services = [
   { title: 'Wedding Planning', description: 'Create your dream wedding with our expert planners.', image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80' },
@@ -13,48 +11,46 @@ const services = [
 ];
 
 const Services: React.FC = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  };
-
   return (
-    <Box id="services" className="py-24 bg-gray-100">
+    <Box id="services" py={12} bgcolor="background.default">
       <Container maxWidth="lg">
-        <Typography variant="h3" className="mb-12 text-center">Our Services</Typography>
-        <Slider {...settings}>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Typography variant="h2" textAlign="center" mb={8} color="primary">
+            Our Services
+          </Typography>
+        </motion.div>
+        <Grid container spacing={4}>
           {services.map((service, index) => (
-            <div key={index} className="px-4">
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
-                <img src={service.image} alt={service.title} className="w-full h-64 object-cover" />
-                <div className="p-6">
-                  <Typography variant="h5" className="mb-4">{service.title}</Typography>
-                  <Typography variant="body2">{service.description}</Typography>
-                </div>
-              </div>
-            </div>
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+              >
+                <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: '16px', overflow: 'hidden', boxShadow: 3 }}>
+                  <CardMedia
+                    component="img"
+                    height="200"
+                    image={service.image}
+                    alt={service.title}
+                  />
+                  <CardContent sx={{ flexGrow: 1, p: 3 }}>
+                    <Typography gutterBottom variant="h5" component="div" fontWeight="bold">
+                      {service.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {service.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </Grid>
           ))}
-        </Slider>
+        </Grid>
       </Container>
     </Box>
   );
