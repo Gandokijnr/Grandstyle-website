@@ -32,8 +32,14 @@ const Header: React.FC = () => {
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <List>
         {navItems.map((item) => (
-          <ListItem button key={item} component="a" href={`#${item.toLowerCase()}`}>
-            <ListItemText primary={item} />
+          <ListItem key={item} disablePadding>
+            <Button
+              component="a"
+              href={`#${item.toLowerCase()}`}
+              sx={{ width: '100%', justifyContent: 'center' }}
+            >
+              <ListItemText primary={item} />
+            </Button>
           </ListItem>
         ))}
       </List>
