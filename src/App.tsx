@@ -31,7 +31,7 @@ const theme = createTheme({
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     h1: { fontWeight: 700, fontSize: '3.5rem', color: '#0056b3' },
-    h2: { fontWeight: 700, fontSize: '3rem', color: '#0056b3' },
+    h2: { fontWeight: 700, fontSize: '4rem', color: '#0056b3'},
     h3: { fontWeight: 600, fontSize: '2.5rem', color: '#0056b3' },
     h4: { fontWeight: 600, fontSize: '2rem', color: '#dc3545' },
     h5: { fontWeight: 500, fontSize: '1.5rem', color: '#dc3545' },
@@ -45,10 +45,11 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: '30px',
+          borderRadius: '8px',
           textTransform: 'none',
           fontWeight: 600,
-          padding: '10px 20px',
+          padding: '15px 30px',
+          marginTop: '20px',
         },
       },
     },
