@@ -5,9 +5,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeNavItem, setActiveNavItem] = useState<string | null>(null); // Track the active nav item
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+  };
+
+  const handleNavClick = (item: string) => {
+    setActiveNavItem(item);
   };
 
   useEffect(() => {
@@ -36,7 +41,13 @@ const Header: React.FC = () => {
             <Button
               component="a"
               href={`#${item.toLowerCase()}`}
-              sx={{ width: '100%', justifyContent: 'center', color: 'text.primary' }}
+              sx={{
+                width: '100%',
+                justifyContent: 'center',
+                color: 'text.primary',
+                backgroundColor: activeNavItem === item ? 'rgba(0, 86, 179, 0.1)' : 'transparent',
+              }}
+              onClick={() => handleNavClick(item)}
             >
               <ListItemText primary={item} />
             </Button>
@@ -48,8 +59,8 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <AppBar 
-        position="fixed" 
+      <AppBar
+        position="fixed"
         sx={{
           background: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
           boxShadow: isScrolled ? 1 : 0,
@@ -62,15 +73,17 @@ const Header: React.FC = () => {
           </Typography>
           <Box sx={{ display: { xs: 'none', md: 'block' } }}>
             {navItems.map((item) => (
-              <Button 
-                key={item} 
-                href={`#${item.toLowerCase()}`} 
-                sx={{ 
+              <Button
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                sx={{
                   color: isScrolled ? 'text.primary' : 'white',
+                  backgroundColor: activeNavItem === item ? 'rgba(0, 86, 179, 0.1)' : 'transparent', // Keep active background color
                   '&:hover': {
                     backgroundColor: 'rgba(0, 86, 179, 0.1)',
                   },
                 }}
+                onClick={() => handleNavClick(item)} // Set the active item when clicked
               >
                 {item}
               </Button>

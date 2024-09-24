@@ -49,14 +49,14 @@ const Hero: React.FC = () => {
                 <div className="text-center px-4">
                   <Typography 
                     variant="h2" 
-                    className="mb-4 font-bold text-5xl md:text-6xl" 
+                    className="mb-6 font-bold text-5xl md:text-6xl" 
                     style={{ color: '#00CED1' }} // Inline style for dark turquoise
                   >
                     {slide.title}
                   </Typography>
                   <Typography 
-                    variant="h5" 
-                    className="mb-8 text-xl md:text-2xl" 
+                    variant="h4" 
+                    className="mb-12 text-xl md:text-2xl" 
                     style={{ color: 'white' }}
                   >
                     {slide.subtitle}

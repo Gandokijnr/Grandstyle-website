@@ -46,14 +46,14 @@ const Gallery: React.FC = () => {
   return (
     <Box id="gallery" className="py-24 bg-white">
       <Container maxWidth="lg">
-        <Typography variant="h3" className="mb-12 text-center font-bold text-gray-800">Event Gallery</Typography>
+        <Typography variant="h2" className="mb-12 text-center font-bold text-gray-800">Event Gallery</Typography>
         <Typography variant="body1" className="mb-8 text-center text-gray-600">
           Explore our diverse portfolio of events, from vibrant Nigerian parties to elegant corporate gatherings. 
           Each image tells a story of joy, celebration, and impeccable planning.
         </Typography>
         <Slider {...settings}>
           {itemData.map((item) => (
-            <div key={item.img} className="px-2">
+            <div key={item.img} className="px-2 mt-12">
               <img
                 src={`${item.img}?w=248&fit=crop&auto=format`}
                 srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
