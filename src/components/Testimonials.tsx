@@ -1,14 +1,36 @@
-import React from 'react';
-import { Typography, Box, Container, Card, CardContent, Avatar, Rating } from '@mui/material';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { motion } from 'framer-motion';
+import React from "react";
+import {
+  Typography,
+  Box,
+  Container,
+  Card,
+  CardContent,
+  Rating,
+} from "@mui/material";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { motion } from "framer-motion";
 
 const testimonials = [
-  { name: 'John Doe', role: 'Happy Client', text: 'Grandstyle Events made our wedding day absolutely perfect! Their attention to detail and creativity exceeded our expectations.', avatar: 'https://i.pravatar.cc/150?img=1', rating: 5 },
-  { name: 'Jane Smith', role: 'Corporate Client', text: 'The team\'s professionalism and innovative ideas for our product launch were truly impressive. They delivered an unforgettable experience.', avatar: 'https://i.pravatar.cc/150?img=2', rating: 5 },
-  { name: 'Mike Johnson', role: 'Birthday Celebrant', text: 'My 50th birthday party was a dream come true thanks to Grandstyle Events. They captured my vision perfectly and executed it flawlessly.', avatar: 'https://i.pravatar.cc/150?img=3', rating: 5 },
+  {
+    name: "Mr & Mrs Ajani",
+    role: "Ibadan, Nigeria",
+    text: "Thank you for making our wedding a grand success and adding colors to the day with your superb service. It was a well organised experience with no hassle",
+    rating: 5,
+  },
+  {
+    name: "Bukky Abike Oluderu",
+    role: "Corporate Client",
+    text: "The team's professionalism and innovative ideas for our product launch were truly impressive. They delivered an unforgettable experience.",
+    rating: 5,
+  },
+  {
+    name: "Hon. Rotimi",
+    role: "Olasogba (Canada)",
+    text: "My father's funeral celebration was a huge success because of the timely event Coordination you provided. We couldn't have had it better without you. God bless you GrandStyle Events.",
+    rating: 5,
+  },
 ];
 
 const Testimonials: React.FC = () => {
@@ -30,7 +52,7 @@ const Testimonials: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Typography variant="h2" textAlign="center" mb={8} color="primary">
+          <Typography variant="h3" textAlign="center" mb={8} color="primary">
             Client Testimonials
           </Typography>
         </motion.div>
@@ -42,17 +64,41 @@ const Testimonials: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <Card elevation={3} sx={{ borderRadius: '16px', overflow: 'hidden', mx: 2 }}>
-                  <CardContent sx={{ p: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Avatar src={testimonial.avatar} sx={{ width: 100, height: 100, mb: 3 }} />
-                    <Typography variant="h6" gutterBottom fontWeight="bold" color="secondary">
+                <Card
+                  elevation={3}
+                  sx={{
+                    borderRadius: "16px",
+                    overflow: "hidden",
+                    mx: 2,
+                  }}
+                >
+                  <CardContent
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Typography variant="h6" gutterBottom fontWeight="bold">
                       {testimonial.name}
                     </Typography>
-                    <Typography variant="subtitle1" gutterBottom color="text.secondary">
+                    <Typography
+                      variant="subtitle1"
+                      gutterBottom
+                      color="text.secondary"
+                    >
                       {testimonial.role}
                     </Typography>
-                    <Rating value={testimonial.rating} readOnly sx={{ mb: 2 }} />
-                    <Typography variant="body1" textAlign="center" color="text.secondary">
+                    <Rating
+                      value={testimonial.rating}
+                      readOnly
+                      sx={{ mb: 2 }}
+                    />
+                    <Typography
+                      variant="body1"
+                      textAlign="center"
+                      color="text.secondary"
+                    >
                       "{testimonial.text}"
                     </Typography>
                   </CardContent>

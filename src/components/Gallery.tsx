@@ -1,19 +1,46 @@
-import React from 'react';
-import { Typography, Box, Container } from '@mui/material';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React from "react";
+import { Typography, Box, Container } from "@mui/material";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const itemData = [
-  { img: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3', title: 'Event Hall' },
-  { img: 'https://images.unsplash.com/photo-1566737236500-c8ac43014a67', title: 'Nigerian Party' },
-  { img: 'https://images.unsplash.com/photo-1551972873-b7e8754e8e26', title: 'Security' },
-  { img: 'https://images.unsplash.com/photo-1516478177764-9fe5bd7e9717', title: 'Waitress' },
-  { img: 'https://images.unsplash.com/photo-1511578314322-379afb476865', title: 'Corporate Event' },
-  { img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed', title: 'Wedding' },
-  { img: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3', title: 'Concert' },
-  { img: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3', title: 'Gala Dinner' },
-  { img: 'https://images.unsplash.com/photo-1530062845289-9109b2c9c868', title: 'Cultural Festival' },
+  {
+    img: "src/assets/gallery/Event Hall.jpg",
+    title: "Event Hall",
+  },
+  {
+    img: "src/assets/gallery/Nigerian Party.jpg",
+    title: "Nigerian Party",
+  },
+  {
+    img: "src/assets/gallery/Security.jpg",
+    title: "Security",
+  },
+  {
+    img: "src/assets/gallery/Waitress.jpg",
+    title: "Waitress",
+  },
+  {
+    img: "src/assets/gallery/Corporate Event.jpg",
+    title: "Corporate Event",
+  },
+  {
+    img: "src/assets/gallery/Wedding.jpg",
+    title: "Wedding",
+  },
+  {
+    img: "src/assets/gallery/Concert.jpg",
+    title: "Concert",
+  },
+  {
+    img: "src/assets/gallery/Gala Dinner.jpg",
+    title: "Gala Dinner",
+  },
+  {
+    img: "src/assets/gallery/Cultural Festival.jpg",
+    title: "Cultural Festival",
+  },
 ];
 
 const Gallery: React.FC = () => {
@@ -31,35 +58,53 @@ const Gallery: React.FC = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-        }
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <Box id="gallery" className="py-24 bg-white">
+    <Box id="gallery" className="py-12 bg-gray-50">
       <Container maxWidth="lg">
-        <Typography variant="h2" className="mb-12 text-center font-bold text-gray-800">Event Gallery</Typography>
-        <Typography variant="body1" className="mb-8 text-center text-gray-600">
-          Explore our diverse portfolio of events, from vibrant Nigerian parties to elegant corporate gatherings. 
-          Each image tells a story of joy, celebration, and impeccable planning.
+        <Typography
+          variant="h3"
+          className="mb-8 text-center font-extrabold text-primary"
+        >
+          Event Gallery
         </Typography>
+        <Typography
+          variant="body1"
+          className="text-center text-gray-600 text-lg"
+        >
+          Explore our diverse portfolio of events, from vibrant Nigerian parties
+          to elegant corporate gatherings. Each image tells a story of joy,
+          celebration, and impeccable planning.
+        </Typography>
+
         <Slider {...settings}>
           {itemData.map((item) => (
-            <div key={item.img} className="px-2 mt-12">
-              <img
-                src={`${item.img}?w=248&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                alt={item.title}
-                className="w-full h-64 object-cover rounded-lg shadow-md"
-              />
+            <div key={item.img} className="px-4 mt-8">
+              <div className="relative group">
+                <img
+                  src={`${item.img}?w=248&fit=crop&auto=format`}
+                  srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                  alt={item.title}
+                  className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
+                />
+                <Typography
+                  variant="h6"
+                  className="mt-4 text-center font-semibold text-secondary group-hover:text-primary"
+                >
+                  {item.title}
+                </Typography>
+              </div>
             </div>
           ))}
         </Slider>
