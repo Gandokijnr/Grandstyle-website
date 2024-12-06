@@ -1,30 +1,32 @@
-import React from 'react';
-import { Typography, Button, Box } from '@mui/material';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React from "react";
+import { Typography, Button, Box } from "@mui/material";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80",
-    title: "Vibrant African Weddings",
-    subtitle: "Celebrate love with the colors and traditions of Africa"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1530062845289-9109b2c9c868?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80",
-    title: "Owambe Extravaganza",
-    subtitle: "Experience the joy and energy of true Nigerian celebrations"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-    title: "Corporate Events with African Flair",
-    subtitle: "Impress your clients with our unique blend of professionalism and culture"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1574691250077-03a929faece5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    image: "src/assets/landing page/Memorable Birthday Bashes.jpg",
     title: "Memorable Birthday Bashes",
-    subtitle: "Turn your special day into an unforgettable African-inspired celebration"
-  }
+    subtitle:
+      "Turn your special day into an unforgettable African-inspired celebration",
+  },
+  {
+    image: "src/assets/landing page/Vibrant African Weddings.jpg",
+    title: "Vibrant African Weddings",
+    subtitle: "Celebrate love with the colors and traditions of Africa",
+  },
+  {
+    image: "src/assets/landing page/Owambe Extravaganza.jpg",
+    title: "Owambe Extravaganza",
+    subtitle: "Experience the joy and energy of true Nigerian celebrations",
+  },
+  {
+    image: "src/assets/landing page/Corporate Events with African Flair.jpg",
+    title: "Corporate Events with African Flair",
+    subtitle:
+      "Impress your clients with our unique blend of professionalism and culture",
+  },
 ];
 
 const Hero: React.FC = () => {
@@ -44,27 +46,43 @@ const Hero: React.FC = () => {
         {slides.map((slide, index) => (
           <div key={index}>
             <div className="relative h-screen">
-              <img src={slide.image} alt={slide.title} className="w-full h-screen object-cover" />
-              <Box className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-screen object-cover"
+              />
+              <Box
+                className="absolute inset-0 bg-black flex items-center justify-center"
+                style={{
+                  background:
+                    "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1))",
+                }}
+              >
                 <div className="text-center px-4">
-                  <Typography 
-                    variant="h2" 
-                    className="mb-6 font-bold text-5xl md:text-6xl" 
-                    style={{ color: '#00CED1' }} // Inline style for dark turquoise
+                  <Typography
+                    variant="h2"
+                    className="mb-6 font-bold text-5xl md:text-6xl"
+                    style={{
+                      color: "#00CED1",
+                      fontFamily: "Cormorant Garamond",
+                      textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
+                      fontWeight: "bold",
+                      marginBottom: "1.5rem",
+                    }}
                   >
                     {slide.title}
                   </Typography>
-                  <Typography 
-                    variant="h4" 
-                    className="mb-12 text-xl md:text-2xl" 
-                    style={{ color: 'white' }}
+                  <Typography
+                    variant="h4"
+                    className="mb-12 text-xl md:text-2xl"
+                    style={{ color: "white", fontFamily: "Montserrat" }}
                   >
                     {slide.subtitle}
                   </Typography>
-                  <Button 
-                    variant="contained" 
-                    color="secondary" 
-                    size="large" 
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    size="large"
                     className="text-lg py-3 px-8 bg-yellow-500 hover:bg-yellow-600"
                   >
                     Plan Your Event
