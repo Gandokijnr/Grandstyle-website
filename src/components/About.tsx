@@ -7,13 +7,13 @@ const aboutContent = [
     title: "Our Story",
     content:
       "GrandStyle Events Management Company is a leading events management firm that has been delivering exceptional and bespoke events since 2012. With a proven track record of success, our team of experts has been consistently raising the bar in event planning, execution, and management.",
-    image: "src/assets/about/Our Mission.jpg",
+    image: "../about/Our Mission.jpg",
   },
   {
     title: "Our Mission",
     content:
       "At GrandStyle Events Management Company, our mission is to create unforgettable experiences that exceed our clients' expectations. We strive to provide personalized and innovative solutions that bring our clients' visions to life.",
-    image: "src/assets/about/Our Story.jpg",
+    image: "../about/Our Mission.jpg",
   },
 ];
 
