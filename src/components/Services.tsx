@@ -15,49 +15,49 @@ const services = [
     title: "Event Conceptualization and Planning",
     description:
       "Transform your vision into reality with our expert planning services, creating events that perfectly reflect your style and needs.",
-    image: "src/assets/services/Wedding Planning.jpg",
+    image: "../services/Wedding Planning.jpg",
   },
   {
     title: "Venue Selection and Strategic Management",
     description:
       "Find the ideal venue that sets the tone for your event and let us handle the details to ensure a seamless experience.",
-    image: "src/assets/services/Corporate Events.jpg",
+    image: "../services/Corporate Events.jpg",
   },
   {
     title: "Birthday Parties",
     description:
       "Celebrate life’s special moments with our custom birthday party planning, tailored to create lasting memories and pure joy",
-    image: "src/assets/services/Birthday Parties.jpg",
+    image: "../services/Birthday Parties.jpg",
   },
   {
     title: "Catering and Drinks Services",
     description:
       "Indulge your guests with exquisite cuisine and refreshing drinks, crafted to elevate any event with culinary delight",
-    image: "src/assets/services/Gala Dinners.jpg",
+    image: "../services/Gala Dinners.jpg",
   },
   {
     title: "Decor and Design",
     description:
       "Make a bold statement with stunning decor that transforms any space, creating an unforgettable ambiance for your event.",
-    image: "src/assets/services/Product Launches.jpg",
+    image: "../services/Product Launches.jpg",
   },
   {
     title: "Live Band, Solo Artist & DJ Entertainment",
     description:
       "Elevate your celebration with captivating performances, from live bands to DJs, ensuring an unforgettable experience for all.",
-    image: "src/assets/services/Live Band.jpg",
+    image: "../services/Live Band.jpg",
   },
   {
     title: "Security, Logistics and Coordination",
     description:
       "Rest easy knowing that your event is in safe hands, with our expert team handling security, logistics, and flawless execution.",
-    image: "src/assets/services/Security.jpg",
+    image: "../services/Security.jpg",
   },
   {
     title: "Marketing and Promotion",
     description:
       "Amplify your event's reach with our strategic marketing services, ensuring it captures the attention of your ideal audience.",
-    image: "src/assets/services/Marketing.jpg",
+    image: "../services/Marketing.jpg",
   },
 ];
 

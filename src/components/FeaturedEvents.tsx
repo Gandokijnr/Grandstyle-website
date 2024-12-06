@@ -14,19 +14,19 @@ const featuredEvents = [
     title: "Elegant Weddings",
     description:
       "Create unforgettable memories with our bespoke wedding planning services.",
-    image: "src/assets/featured/Elegant Weddings.jpg",
+    image: "../featured/Elegant Weddings.jpg",
   },
   {
     title: "Corporate Gatherings",
     description:
       "Impress your clients and team with our professional corporate event management.",
-    image: "src/assets/featured/Corporate Gatherings.jpg",
+    image: "../featured/Corporate Gatherings.jpg",
   },
   {
     title: "Milestone Celebrations",
     description:
       "Mark life's special moments with our expertly crafted celebration experiences.",
-    image: "src/assets/featured/Milestone Celebrations.jpg",
+    image: "../featured/Milestone Celebrations.jpg",
   },
 ];
 

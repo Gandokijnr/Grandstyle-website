@@ -6,39 +6,39 @@ import "slick-carousel/slick/slick-theme.css";
 
 const itemData = [
   {
-    img: "src/assets/gallery/Event Hall.jpg",
+    img: "../gallery/Event Hall.jpg",
     title: "Event Hall",
   },
   {
-    img: "src/assets/gallery/Nigerian Party.jpg",
+    img: "../gallery/Nigerian Party.jpg",
     title: "Nigerian Party",
   },
   {
-    img: "src/assets/gallery/Security.jpg",
+    img: "../gallery/Security.jpg",
     title: "Security",
   },
   {
-    img: "src/assets/gallery/Waitress.jpg",
+    img: "../gallery/Waitress.jpg",
     title: "Waitress",
   },
   {
-    img: "src/assets/gallery/Corporate Event.jpg",
+    img: "../gallery/Corporate Event.jpg",
     title: "Corporate Event",
   },
   {
-    img: "src/assets/gallery/Wedding.jpg",
+    img: "../gallery/Wedding.jpg",
     title: "Wedding",
   },
   {
-    img: "src/assets/gallery/Concert.jpg",
+    img: "../gallery/Concert.jpg",
     title: "Concert",
   },
   {
-    img: "src/assets/gallery/Gala Dinner.jpg",
+    img: "../gallery/Gala Dinner.jpg",
     title: "Gala Dinner",
   },
   {
-    img: "src/assets/gallery/Cultural Festival.jpg",
+    img: "../gallery/Cultural Festival.jpg",
     title: "Cultural Festival",
   },
 ];

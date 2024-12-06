@@ -6,23 +6,23 @@ import "slick-carousel/slick/slick-theme.css";
 
 const slides = [
   {
-    image: "src/assets/landing page/Memorable Birthday Bashes.jpg",
+    image: "../landing page/Memorable Birthday Bashes.JPG",
     title: "Memorable Birthday Bashes",
     subtitle:
       "Turn your special day into an unforgettable African-inspired celebration",
   },
   {
-    image: "src/assets/landing page/Vibrant African Weddings.jpg",
+    image: "../landing page/Vibrant African Weddings.jpg",
     title: "Vibrant African Weddings",
     subtitle: "Celebrate love with the colors and traditions of Africa",
   },
   {
-    image: "src/assets/landing page/Owambe Extravaganza.jpg",
+    image: "../landing page/Owambe Extravaganza.jpg",
     title: "Owambe Extravaganza",
     subtitle: "Experience the joy and energy of true Nigerian celebrations",
   },
   {
-    image: "src/assets/landing page/Corporate Events with African Flair.jpg",
+    image: "../landing page/Corporate Events with African Flair.jpg",
     title: "Corporate Events with African Flair",
     subtitle:
       "Impress your clients with our unique blend of professionalism and culture",

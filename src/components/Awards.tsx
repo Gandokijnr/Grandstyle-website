@@ -7,19 +7,19 @@ const awards = [
     title: "2023 Event Agency of the Year",
     description:
       "Honored with the prestigious 'Event Agency of the Year' award by Leads Award.",
-    image: "src/assets/award/2023 Event Agency of the Year.jpg",
+    image: "../award/2023 Event Agency of the Year.jpg",
   },
   {
     title: "Best Corporate Event 2022",
     description:
       "Recognized for outstanding corporate event planning and execution.",
-    image: "src/assets/award/Best Corporate Event 2022.jpg",
+    image: "../award/Best Corporate Event 2022.jpg",
   },
   {
     title: "Innovation in Event Technology 2021",
     description:
       "Awarded for pioneering use of technology in event management.",
-    image: "src/assets/award/Innovation in Event Technology 2021.jpg",
+    image: "../award/Innovation in Event Technology 2021.jpg",
   },
 ];
 
