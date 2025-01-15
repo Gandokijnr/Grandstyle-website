@@ -1,3 +1,55 @@
+# Grandstyle-website
+
+## Getting Started
+
+1. Clone this repository:
+```bash
+git clone [your-repository-url]
+cd Grandstyle-website
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+The application will start running at `http://localhost:5173`
+
+## Development Stack
+
+This project uses:
+- React 18
+- TypeScript
+- Vite
+- ESLint for code quality
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build locally
+
+## Project Structure
+
+```
+Grandstyle-website/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── App.tsx
+│   └── main.tsx
+├── public/
+├── index.html
+└── package.json
+```
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -48,4 +100,3 @@ export default tseslint.config({
   },
 })
 ```
-# Grandstyle-website
