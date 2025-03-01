@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Typography } from "@mui/material";
 
 const About = () => {
   const aboutContent = [
@@ -42,9 +43,12 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-bold mb-3 text-gray-800">
+            <Typography
+              variant="h3"
+              className="text-4xl font-bold mb-3 text-gray-800"
+            >
               About GrandStyle Events
-            </h2>
+            </Typography>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Creating memorable event experiences with passion and expertise
