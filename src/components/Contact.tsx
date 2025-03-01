@@ -20,7 +20,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
   borderRadius: "16px",
   boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
-  borderTop: "4px solid #1976d2", // Blue accent border
+  borderTop: "4px solid #1976d2", // Blue border line covering the section at the top
 }));
 
 const ContactField = styled(TextField)(({ theme }) => ({
