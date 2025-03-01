@@ -46,21 +46,21 @@ const Services = () => {
       description:
         "Elevate your celebration with captivating performances, from live bands to DJs, ensuring an unforgettable experience for all.",
       image: "../services/Live Band.jpg",
-      color: "#8B5CF6", // Violet
+      color: "#8B5CF6",
     },
     {
       title: "Security, Logistics and Coordination",
       description:
         "Rest easy knowing that your event is in safe hands, with our expert team handling security, logistics, and flawless execution.",
       image: "../services/Security.jpg",
-      color: "#3B82F6", // Blue
+      color: "#3B82F6",
     },
     {
       title: "Marketing and Promotion",
       description:
         "Amplify your event's reach with our strategic marketing services, ensuring it captures the attention of your ideal audience.",
       image: "../services/Marketing.jpg",
-      color: "#EF4444", // Red
+      color: "#EF4444",
     },
   ];
 
