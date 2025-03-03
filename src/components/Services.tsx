@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Typography } from "@mui/material";
 
@@ -31,14 +31,14 @@ const Services = () => {
       title: "Catering and Drinks Services",
       description:
         "Indulge your guests with exquisite cuisine and refreshing drinks, crafted to elevate any event with culinary delight",
-      image: "../services/Gala Dinners.jpg",
+      image: "../services/buffet.jpg",
       color: "#F59E0B",
     },
     {
       title: "Decor and Design",
       description:
         "Make a bold statement with stunning decor that transforms any space, creating an unforgettable ambiance for your event.",
-      image: "../services/Product Launches.jpg",
+      image: "../services/Corporate Events.jpg",
       color: "#10B981",
     },
     {
