@@ -14,10 +14,10 @@ import Footer from "./components/Footer";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#0056b3", // Deep blue
+      main: "#00008B", // Deep blue
     },
     secondary: {
-      main: "#dc3545", // Red
+      main: "#900000", // Red
     },
     background: {
       default: "#ffffff", // White
