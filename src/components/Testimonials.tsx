@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   Typography,
   Box,
@@ -11,7 +11,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
-import { Typography } from "@mui/material";
 
 const testimonials = [
   {
