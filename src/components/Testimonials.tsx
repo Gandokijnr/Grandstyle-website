@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import React from "react";
 import {
   Typography,
   Box,
@@ -33,7 +33,7 @@ const testimonials = [
   },
 ];
 
-const Testimonials: FC = () => {
+const Testimonials: React.FC = () => {
   const settings = {
     dots: true,
     infinite: true,
