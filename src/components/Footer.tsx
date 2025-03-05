@@ -18,7 +18,7 @@ const Footer = () => {
         {/* Social Media Section */}
         <div className="flex justify-center space-x-6 mb-10">
           <a
-            href="https://www.facebook.com/grandstyleevents"
+            href="https://www.facebook.com/grandstyle.event"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full transition duration-300"
@@ -38,7 +38,7 @@ const Footer = () => {
             </svg>
           </a>
           <a
-            href="https://www.instagram.com/grandstyleevents"
+            href="https://www.instagram.com/grandstyle.events?utm_source=qr&igsh=YWVtd2UxMHJkN3Nk "
             target="_blank"
             rel="noopener noreferrer"
             className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-full transition duration-300"
