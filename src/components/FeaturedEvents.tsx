@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Typography } from "@mui/material";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { fill } from "@cloudinary/url-gen/actions/resize";
+import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
+import { AdvancedImage } from "@cloudinary/react";
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: "wintan1418",
+  },
+});
 
 const FeaturedEvents = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -10,22 +20,22 @@ const FeaturedEvents = () => {
       title: "Elegant Weddings",
       description:
         "Create unforgettable memories with our bespoke wedding planning services.",
-      image: "../featured/Elegant Weddings.jpg",
-      color: "#900000", // Pink
+      publicId: "featured/Elegant Weddings",
+      color: "#900000",
     },
     {
       title: "Corporate Gatherings",
       description:
         "Impress your clients and team with our professional corporate event management.",
-      image: "../featured/Corporate Gatherings.jpg",
-      color: "#00008B", // Blue
+      publicId: "featured/Corporate Gatherings",
+      color: "#00008B",
     },
     {
       title: "Milestone Celebrations",
       description:
         "Mark life's special moments with our expertly crafted celebration experiences.",
-      image: "../featured/Milestone Celebrations.jpg",
-      color: "#6F42C1", // Purple
+      publicId: "featured/Milestone Celebrations",
+      color: "#6F42C1",
     },
   ];
 
@@ -88,10 +98,16 @@ const FeaturedEvents = () => {
                     transition={{ duration: 0.4 }}
                     className="w-full h-full"
                   >
-                    <img
-                      src={event.image}
+                    <AdvancedImage
+                      cldImg={cld
+                        .image(event.publicId)
+                        .resize(
+                          fill().width(600).height(400).gravity(autoGravity())
+                        )
+                        .quality("auto")
+                        .format("auto")}
                       alt={event.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                   </motion.div>
@@ -116,30 +132,7 @@ const FeaturedEvents = () => {
                         x: hoveredIndex === index ? 5 : 0,
                       }}
                       transition={{ duration: 0.3 }}
-                    >
-                      <span
-                        className="mr-2 transition-colors duration-300"
-                        style={{ color: event.color }}
-                      >
-                        Learn more
-                      </span>
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        style={{ fill: event.color }}
-                      >
-                        <path
-                          d="M7 4L13 10L7 16"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </motion.div>
+                    ></motion.div>
                   </div>
                 </div>
 
