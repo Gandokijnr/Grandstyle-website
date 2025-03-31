@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Typography } from "@mui/material";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { fill } from "@cloudinary/url-gen/actions/resize";
+import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
+import { AdvancedImage } from "@cloudinary/react";
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: "wintan1418",
+  },
+});
 
 const Awards = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -10,21 +20,21 @@ const Awards = () => {
       title: "2023 Event Agency of the Year",
       description:
         "Honored with the prestigious 'Event Agency of the Year' award by Leads Award.",
-      image: "../award/2023 Event Agency of the Year.jpg",
+      publicId: "award/2023 Event Agency of the Year",
       color: "#C0C0C0",
     },
     {
       title: "Best Corporate Event 2022",
       description:
         "Recognized for outstanding corporate event planning and execution.",
-      image: "../award/Best Corporate Event 2022.jpg",
+      publicId: "award/Best Corporate Event 2022",
       color: "#C0C0C0",
     },
     {
       title: "Innovation in Event Technology 2021",
       description:
         "Awarded for pioneering use of technology in event management.",
-      image: "../award/Innovation in Event Technology 2021.jpg",
+      publicId: "award/Innovation in Event Technology 2021",
       color: "#C0C0C0",
     },
   ];
@@ -90,10 +100,16 @@ const Awards = () => {
                     transition={{ duration: 0.4 }}
                     className="w-full h-full"
                   >
-                    <img
-                      src={award.image}
+                    <AdvancedImage
+                      cldImg={cld
+                        .image(award.publicId)
+                        .resize(
+                          fill().width(600).height(400).gravity(autoGravity())
+                        )
+                        .quality("auto")
+                        .format("auto")}
                       alt={award.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-30"></div>
                   </motion.div>

@@ -4,41 +4,52 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { Cloudinary } from "@cloudinary/url-gen";
+import { fill } from "@cloudinary/url-gen/actions/resize";
+import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
+import { AdvancedImage } from "@cloudinary/react";
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: "wintan1418",
+  },
+});
+
 const itemData = [
   {
-    img: "../gallery/Event Hall.jpg",
+    publicId: "gallery/concert",
     title: "Event Hall",
   },
   {
-    img: "../gallery/Nigerian Party.jpg",
+    publicId: "gallery/Nigerian Party",
     title: "Nigerian Party",
   },
   {
-    img: "../gallery/Security.jpg",
+    publicId: "gallery/security",
     title: "Security",
   },
   {
-    img: "../gallery/Waitress.jpg",
+    publicId: "gallery/Waitress",
     title: "Waitress",
   },
   {
-    img: "../gallery/Corporate Event.jpg",
+    publicId: "gallery/Corporate Event",
     title: "Corporate Event",
   },
   {
-    img: "../gallery/Wedding.jpg",
+    publicId: "gallery/Wedding",
     title: "Wedding",
   },
   {
-    img: "../gallery/Concert.jpg",
+    publicId: "gallery/concert",
     title: "Concert",
   },
   {
-    img: "../gallery/Gala Dinner.jpg",
+    publicId: "gallery/Gala Dinner",
     title: "Gala Dinner",
   },
   {
-    img: "../gallery/Cultural Festival.jpg",
+    publicId: "gallery/Cultural Festival",
     title: "Cultural Festival",
   },
 ];
@@ -90,13 +101,18 @@ const Gallery: React.FC = () => {
 
         <Slider {...settings}>
           {itemData.map((item) => (
-            <div key={item.img} className="px-4 mt-8">
+            <div key={item.publicId} className="px-4 mt-8">
               <div className="relative group">
-                <img
-                  src={`${item.img}?w=248&fit=crop&auto=format`}
-                  srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                <AdvancedImage
+                  cldImg={cld
+                    .image(item.publicId)
+                    .resize(
+                      fill().width(600).height(400).gravity(autoGravity())
+                    )
+                    .quality("auto")
+                    .format("auto")}
                   alt={item.title}
-                  className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <Typography
                   variant="h6"
