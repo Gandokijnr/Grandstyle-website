@@ -20,7 +20,7 @@ const cld = new Cloudinary({
 
 const slides = [
   {
-    publicId: "landing page/d9xqwbakv6xpze5wwgke",
+    publicId: "gallery/d1msrwdqadspahw5ca9l",
     title: "Memorable Birthday Bashes",
     subtitle:
       "Turn your special day into an unforgettable African-inspired celebration",
@@ -28,14 +28,14 @@ const slides = [
       "Our birthday packages blend traditional African elements with modern celebration styles, creating a unique experience for you and your guests.",
   },
   {
-    publicId: "landing page/Vibrant_African_Weddings_vuvolr",
+    publicId: "gallery/vq195u3uu0jrvdwdubwk",
     title: "Vibrant African Weddings",
     subtitle: "Celebrate love with the colors and traditions of Africa",
     description:
       "From traditional ceremonies to contemporary celebrations, we create wedding experiences that honor your heritage while creating lasting memories.",
   },
   {
-    publicId: "landing page/Owambe_Extravaganza_w8zchx",
+    publicId: "gallery/Gala Dinner",
     title: "Owambe Extravaganza",
     subtitle: "Experience the joy and energy of true Nigerian celebrations",
     description:

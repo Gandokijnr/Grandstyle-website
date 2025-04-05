@@ -54,7 +54,7 @@ const Services = () => {
         "Find the ideal venue that sets the tone for your event and let us handle the details to ensure a seamless experience.",
       longDescription:
         "The perfect venue is the foundation of a successful event. Our team researches and scouts locations that align with your vision, budget, and practical needs. We negotiate contracts, manage site visits, and coordinate all venue-related logistics to ensure the space works perfectly for your event requirements.",
-      publicId: "services/Corporate Events",
+      publicId: "landing page/d9xqwbakv6xpze5wwgke",
       color: "#0EA5E9",
       category: "planning",
       icon: <MapPin size={24} />,
@@ -71,7 +71,7 @@ const Services = () => {
         "Celebrate life's special moments with our custom birthday party planning, tailored to create lasting memories and pure joy.",
       longDescription:
         "From intimate gatherings to lavish celebrations, we design birthday experiences that reflect the personality and preferences of the guest of honor. Our services include theme development, activity planning, surprise coordination, and creating those special moments that will be remembered for years to come.",
-      publicId: "services/Birthday Parties",
+      publicId: "featured/Milestone Celebrations",
       color: "#EC4899",
       category: "planning",
       icon: <Users size={24} />,
@@ -88,7 +88,7 @@ const Services = () => {
         "Indulge your guests with exquisite cuisine and refreshing drinks, crafted to elevate any event with culinary delight.",
       longDescription:
         "Our culinary partnerships allow us to offer exceptional food and beverage experiences. We coordinate menu development, tasting sessions, dietary accommodation, and stylish presentation. Whether you're looking for formal dining, casual buffets, or innovative food stations, we ensure your guests enjoy a memorable culinary journey.",
-      publicId: "services/Birthday Parties",
+      publicId: "services/Gala Dinners",
       color: "#F59E0B",
       category: "logistics",
       icon: <Utensils size={24} />,
@@ -105,7 +105,7 @@ const Services = () => {
         "Make a bold statement with stunning decor that transforms any space, creating an unforgettable ambiance for your event.",
       longDescription:
         "Our design team creates immersive environments that bring your event vision to life. From concept development to installation, we handle every aspect of your event's visual identity. Services include theme development, floral arrangements, lighting design, furniture selection, and custom installations that create Instagram-worthy moments.",
-      publicId: "services/Gala Dinners",
+      publicId: "gallery/psuuqcthlvo75ltlymif",
       color: "#10B981",
       category: "decor",
       icon: <Palette size={24} />,
@@ -199,10 +199,7 @@ const Services = () => {
   };
 
   return (
-    <section
-      id="services"
-      className="py-24 bg-gradient-to-b from-gray-50 to-white"
-    >
+    <section id="services" className=" bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -211,18 +208,13 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <Typography
-            variant="h3"
-            className="text-4xl font-bold mb-3"
-            style={{ color: "#1E293B", fontFamily: "Cormorant Garamond" }}
-          >
+          <Typography variant="h3" className="text-4xl font-bold mb-3">
             Our Services
           </Typography>
           <div className="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
           <Typography
             variant="subtitle1"
             className="text-gray-600 max-w-auto mx-auto"
-            style={{ fontFamily: "Montserrat" }}
           >
             Comprehensive event planning solutions tailored to create memorable
             experiences for your special occasions

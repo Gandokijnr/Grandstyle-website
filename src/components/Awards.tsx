@@ -40,10 +40,7 @@ const Awards = () => {
   ];
 
   return (
-    <section
-      id="awards"
-      className="py-16 bg-gradient-to-b from-gray-50 to-white"
-    >
+    <section id="awards" className="bg-gradient-to-b from-gray-50 to-white">
       <hr className="mt-5 border-2 mb-8" />
 
       <div className="max-w-6xl mx-auto px-4">
