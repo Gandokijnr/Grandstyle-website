@@ -1,5 +1,13 @@
-import React from "react";
-import { Typography, Box, Container } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Typography,
+  Box,
+  Container,
+  Modal,
+  IconButton,
+  Grid,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -25,7 +33,7 @@ const itemData = [
     title: "Nigerian Party",
   },
   {
-    publicId: "gallery/security",
+    publicId: "gallery/dn5zl1cth2u7tigeccjx",
     title: "Security",
   },
   {
@@ -55,6 +63,16 @@ const itemData = [
 ];
 
 const Gallery: React.FC = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
   const settings = {
     dots: true,
     infinite: true,
@@ -99,6 +117,15 @@ const Gallery: React.FC = () => {
           celebration, and impeccable planning.
         </Typography>
 
+        <Box className="flex justify-center mb-8">
+          <button
+            onClick={handleOpenModal}
+            className="mt-6 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-primary-dark transition-colors duration-300"
+          >
+            View All Gallery
+          </button>
+        </Box>
+
         <Slider {...settings}>
           {itemData.map((item) => (
             <div key={item.publicId} className="px-4 mt-8">
@@ -124,6 +151,51 @@ const Gallery: React.FC = () => {
             </div>
           ))}
         </Slider>
+
+        {/* Modal for displaying all gallery images */}
+        <Modal
+          open={modalOpen}
+          onClose={handleCloseModal}
+          aria-labelledby="gallery-modal"
+          aria-describedby="all-gallery-images"
+        >
+          <Box className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-lg shadow-xl">
+            <Box className="flex justify-between items-center mb-6">
+              <Typography variant="h4" className="font-bold text-primary">
+                Complete Gallery
+              </Typography>
+              <IconButton onClick={handleCloseModal} aria-label="close">
+                <CloseIcon />
+              </IconButton>
+            </Box>
+
+            <Grid container spacing={3}>
+              {itemData.map((item) => (
+                <Grid item xs={12} sm={6} md={4} key={item.publicId}>
+                  <Box className="mb-4">
+                    <AdvancedImage
+                      cldImg={cld
+                        .image(item.publicId)
+                        .resize(
+                          fill().width(400).height(300).gravity(autoGravity())
+                        )
+                        .quality("auto")
+                        .format("auto")}
+                      alt={item.title}
+                      className="w-full h-full object-cover rounded-md shadow-md hover:shadow-lg transition-shadow duration-300"
+                    />
+                    <Typography
+                      variant="subtitle1"
+                      className="mt-2 text-center font-medium text-secondary"
+                    >
+                      {item.title}
+                    </Typography>
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        </Modal>
       </Container>
     </Box>
   );
