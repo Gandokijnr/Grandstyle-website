@@ -5,6 +5,7 @@ import { Cloudinary } from "@cloudinary/url-gen";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
 import { AdvancedImage } from "@cloudinary/react";
+import VideoShowcase from "@/components/VideoShowcase";
 
 const cld = new Cloudinary({
   cloud: {
@@ -20,7 +21,7 @@ const FeaturedEvents = () => {
       title: "Elegant Weddings",
       description:
         "Create unforgettable memories with our bespoke wedding planning services.",
-      publicId: "featured/Elegant Weddings",
+      publicId: "gallery/qs7d7w6mvf1jk93ji0ao",
       color: "#900000",
     },
     {
@@ -79,7 +80,6 @@ const FeaturedEvents = () => {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <div className="relative overflow-hidden rounded-xl shadow-lg h-full bg-white">
-                {/* Category label */}
                 <div
                   className="absolute top-4 left-4 px-4 py-1 z-10 rounded-full"
                   style={{ backgroundColor: event.color }}
@@ -89,7 +89,6 @@ const FeaturedEvents = () => {
                   </span>
                 </div>
 
-                {/* Image */}
                 <div className="relative h-64 overflow-hidden">
                   <motion.div
                     animate={{
@@ -112,7 +111,6 @@ const FeaturedEvents = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                   </motion.div>
 
-                  {/* Title overlay on image */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3 className="text-2xl font-bold text-white mb-2">
                       {event.title}
@@ -158,6 +156,8 @@ const FeaturedEvents = () => {
           className="mt-16 text-center"
         ></motion.div>
       </div>
+      {/* videosection component */}
+      <VideoShowcase />
     </section>
   );
 };

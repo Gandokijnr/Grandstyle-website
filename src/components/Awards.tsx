@@ -20,7 +20,7 @@ const Awards = () => {
       title: "2023 Event Agency of the Year",
       description:
         "Honored with the prestigious 'Event Agency of the Year' award by Leads Award.",
-      publicId: "award/2023 Event Agency of the Year",
+      publicId: "gallery/qahtzfviclh56zxjbw3k",
       color: "#C0C0C0",
     },
     {
