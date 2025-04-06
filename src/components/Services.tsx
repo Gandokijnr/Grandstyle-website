@@ -71,7 +71,7 @@ const Services = () => {
         "Celebrate life's special moments with our custom birthday party planning, tailored to create lasting memories and pure joy.",
       longDescription:
         "From intimate gatherings to lavish celebrations, we design birthday experiences that reflect the personality and preferences of the guest of honor. Our services include theme development, activity planning, surprise coordination, and creating those special moments that will be remembered for years to come.",
-      publicId: "featured/Milestone Celebrations",
+      publicId: "gallery/nked2lto4cxdfeyyerps",
       color: "#EC4899",
       category: "planning",
       icon: <Users size={24} />,
