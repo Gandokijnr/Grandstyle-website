@@ -50,7 +50,7 @@ const About = () => {
       title: "Our Process",
       content:
         "We follow a proven four-step process: Discovery, where we understand your vision; Design, where we create a tailored plan; Coordination, where we manage all logistics and vendors; and finally, Execution, where we bring your event to life exactly as envisioned.",
-      publicId: "about/nbwgtwfgjvbalbvvdohy",
+      publicId: "services/yfmibnaoapymegbn5pbo",
       color: "#F68B8B",
       accentPoints: ["Discover", "Design", "Coordinate", "Execute"],
     },
