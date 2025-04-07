@@ -207,36 +207,30 @@ const Contact: React.FC = () => {
               >
                 Request a Quote
               </Typography>
-              <ContactField
-                fullWidth
-                label="Your Name"
-                variant="outlined"
-                placeholder="Enter your full name"
-                margin="normal"
-              />
-              <ContactField
-                fullWidth
-                label="Your Email"
-                variant="outlined"
-                placeholder="Enter your email address"
-                margin="normal"
-              />
-              <ContactField
-                fullWidth
-                label="Event Type"
-                variant="outlined"
-                placeholder="What kind of event are you planning?"
-                margin="normal"
-              />
-              <ContactButton
-                variant="contained"
-                color="primary"
-                size="large"
-                fullWidth
-                sx={{ mt: 2 }}
+              <Box
+                sx={{
+                  height: "100%",
+                  minHeight: "500px",
+                  width: "100%",
+                  overflow: "hidden",
+                }}
               >
-                Get Your Free Quote
-              </ContactButton>
+                <iframe
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSdegjdg_uPEwxTKPxJiLDmwWv8KZIhGCgPhfZNWuXNjvRHVxg/viewform?embedded=true"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  marginHeight={0}
+                  marginWidth={0}
+                  title="Contact Form"
+                  style={{
+                    border: "none",
+                    borderRadius: "10px",
+                  }}
+                >
+                  Loading…
+                </iframe>
+              </Box>
             </Grid>
           </Grid>
         </StyledPaper>
