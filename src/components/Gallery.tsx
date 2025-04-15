@@ -60,6 +60,54 @@ const itemData = [
     publicId: "gallery/Cultural Festival",
     title: "Cultural Festival",
   },
+  {
+    publicId: "gallery/bamqjbs2skqkh3pa9zxk",
+    title: "Event Setup Awards",
+  },
+  {
+    publicId: "gallery/jkncqcyke3nr5p0o7jmb",
+    title: "Event team",
+  },
+  {
+    publicId: "gallery/reboufxgfqb5n1kl0vmk",
+    title: "event team",
+  },
+  {
+    publicId: "gallery/xkmx6u0bdzl8gpq9d2v3",
+    title: "Venue Setup",
+  },
+  {
+    publicId: "gallery/hd7vrbwpcup85pjpieso",
+    title: "Event team photoshot",
+  },
+  {
+    publicId: "gallery/u0tlax6idodnt8vaopic",
+    title: "event gallery",
+  },
+  {
+    publicId: "gallery/fxo9fxeemjrimlqsnkuv",
+    title: "event cordinator",
+  },
+  {
+    publicId: "gallery/i1ly2na9kiiseqnthj73",
+    title: "event team of the year",
+  },
+  {
+    publicId: "gallery/e7vc3au9v5tzpryrol85",
+    title: "security team",
+  },
+  {
+    publicId: "gallery/bwfxdekqocjmwlwpvdnp",
+    title: "security on guard",
+  },
+  {
+    publicId: "gallery/deejigubdsv22dfpiwvl",
+    title: "menu and cutlery",
+  },
+  {
+    publicId: "gallery/skks75eufxbe6ee2itdi",
+    title: "fun attendees",
+  }
 ];
 
 const Gallery: React.FC = () => {
