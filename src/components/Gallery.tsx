@@ -25,10 +25,6 @@ const cld = new Cloudinary({
 
 const itemData = [
   {
-    publicId: "gallery/concert",
-    title: "Event Hall",
-  },
-  {
     publicId: "gallery/Nigerian Party",
     title: "Nigerian Party",
   },
