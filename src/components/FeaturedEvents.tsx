@@ -22,21 +22,21 @@ const FeaturedEvents = () => {
       description:
         "Create unforgettable memories with our bespoke wedding planning services.",
       publicId: "gallery/qs7d7w6mvf1jk93ji0ao",
-      color: "#900000",
+      color: "#000000",
     },
     {
       title: "Corporate Gatherings",
       description:
         "Impress your clients and team with our professional corporate event management.",
       publicId: "featured/Corporate Gatherings",
-      color: "#00008B",
+      color: "#1A237E",
     },
     {
       title: "Milestone Celebrations",
       description:
         "Mark life's special moments with our expertly crafted celebration experiences.",
       publicId: "featured/Milestone Celebrations",
-      color: "#6F42C1",
+      color: "#B71C1C",
     },
   ];
 

@@ -27,7 +27,7 @@ const About = () => {
       content:
         "At GrandStyle Events, we transform your dreams into reality with seamless event planning and execution. From luxury weddings to corporate gatherings and milestone celebrations, we ensure every detail is handled with expertise, creativity, and precision.",
       publicId: "about/nbwgtwfgjvbalbvvdohy",
-      color: "#4A5CF6",
+      color: "#B71C1C",
       accentPoints: [
         "Established 2012",
         "Industry Leaders",
@@ -39,7 +39,7 @@ const About = () => {
       content:
         "We create tailored experiences that truly reflect your style with flawless execution. Our dedicated team ensures every detail is perfect, providing stress-free planning from start to finish. With over a decade of experience, we've built a reputation for excellence that our clients trust.",
       publicId: "about/why_choose_us",
-      color: "#F65C5C",
+      color: "#000000",
       accentPoints: [
         "Client-focused",
         "Innovative Solutions",
@@ -51,7 +51,7 @@ const About = () => {
       content:
         "We follow a proven four-step process: Discovery, where we understand your vision; Design, where we create a tailored plan; Coordination, where we manage all logistics and vendors; and finally, Execution, where we bring your event to life exactly as envisioned.",
       publicId: "services/yfmibnaoapymegbn5pbo",
-      color: "#F68B8B",
+      color: "#1A237E",
       accentPoints: ["Discover", "Design", "Coordinate", "Execute"],
     },
   ];
@@ -88,7 +88,7 @@ const About = () => {
           <Typography
             variant="h3"
             className="text-4xl font-bold mb-3"
-            style={{ color: "#1E293B", fontFamily: "Cormorant Garamond" }}
+            style={{ fontFamily: "Cormorant Garamond" }}
           >
             About GrandStyle Events
           </Typography>
@@ -115,6 +115,7 @@ const About = () => {
                 fontWeight: 600,
                 fontFamily: "Montserrat",
                 textTransform: "none",
+                color: "#1A237E",
               },
               "& .Mui-selected": {
                 color: aboutContent[activeTab].color,
@@ -198,7 +199,6 @@ const About = () => {
                     transition={{ duration: 0.6 }}
                     className="relative overflow-hidden rounded-xl shadow-xl"
                   >
-                    {/* Replace with Cloudinary image */}
                     <div className="relative group aspect-w-16 aspect-h-9">
                       <AdvancedImage
                         cldImg={cld
@@ -252,7 +252,7 @@ const About = () => {
           className="relative mt-20 text-center p-12 rounded-2xl overflow-hidden"
           style={{
             background:
-              "linear-gradient(135deg, #F65C5C 0%, #4A5CF6 50%, #F65C5C 100%)",
+            "linear-gradient(135deg, #B71C1C 0%, #000000 70%)",
           }}
         >
           {/* Background pattern */}

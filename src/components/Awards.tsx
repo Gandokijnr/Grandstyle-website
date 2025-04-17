@@ -21,21 +21,21 @@ const Awards = () => {
       description:
         "Honored with the prestigious 'Event Agency of the Year' award by Leads Award.",
       publicId: "gallery/i1ly2na9kiiseqnthj73",
-      color: "#C0C0C0",
+      color: "#000000",
     },
     {
       title: "Best Corporate Event 2022",
       description:
         "Recognized for outstanding corporate event planning and execution.",
       publicId: "award/Best Corporate Event 2022",
-      color: "#C0C0C0",
+      color: "#000000",
     },
     {
       title: "Innovation in Event Technology 2021",
       description:
         "Awarded for pioneering use of technology in event management.",
       publicId: "award/Innovation in Event Technology 2021",
-      color: "#C0C0C0",
+      color: "#000000",
     },
   ];
 
