@@ -59,7 +59,7 @@ const NextArrow = (props: { onClick?: () => void }) => {
       className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer rounded-full bg-white bg-opacity-50 p-2 hover:bg-opacity-80 transition-all duration-300"
       onClick={onClick}
     >
-      <ArrowForwardIcon style={{ color: "#00CED1" }} />
+      <ArrowForwardIcon style={{ color: "#B71C1C" }} />
     </div>
   );
 };
@@ -71,7 +71,7 @@ const PrevArrow = (props: { onClick?: () => void }) => {
       className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer rounded-full bg-white bg-opacity-50 p-2 hover:bg-opacity-80 transition-all duration-300"
       onClick={onClick}
     >
-      <ArrowBackIcon style={{ color: "#00CED1" }} />
+      <ArrowBackIcon style={{ color: "#B71C1C" }} />
     </div>
   );
 };
@@ -97,7 +97,7 @@ const Hero = () => {
           width: "12px",
           height: "12px",
           borderRadius: "50%",
-          backgroundColor: i === activeSlide ? "#00CED1" : "#FFFFFF",
+          backgroundColor: i === activeSlide ? "#B71C1C" : "#FFFFFF",
           opacity: i === activeSlide ? 1 : 0.5,
           transition: "all 0.3s ease",
           margin: "0 5px",
@@ -107,7 +107,7 @@ const Hero = () => {
   };
 
   return (
-    <Box className="relative min-h-screen bg-gradient-to-r from-gray-900 to-black py-36">
+    <Box className="relative min-h-screen bg-gradient-to-r from-gray-900 to-black py-12 md:py-36">
       <Container maxWidth="xl">
         <Grid container spacing={4} alignItems="center">
           {/* Left Column - Text Content */}
@@ -116,12 +116,12 @@ const Hero = () => {
               <Typography
                 variant="h2"
                 style={{
-                  color: "#00CED1",
+                  color: "#B71C1C",
                   fontFamily: "Cormorant Garamond, serif",
                   textShadow: "1px 1px 3px rgba(0, 0, 0, 0.5)",
                   fontWeight: "bold",
                   marginBottom: "1.5rem",
-                  fontSize: "3.5rem",
+                  fontSize: "2.5rem",
                   lineHeight: 1.2,
                   transition: "all 0.5s ease",
                 }}
@@ -162,7 +162,7 @@ const Hero = () => {
                   size="large"
                   endIcon={<CalendarTodayIcon />}
                   style={{
-                    backgroundColor: "#00CED1",
+                    backgroundColor: "#B71C1C",
                     color: "white",
                     fontFamily: "Montserrat, sans-serif",
                     fontWeight: "bold",
@@ -170,10 +170,14 @@ const Hero = () => {
                     borderRadius: "8px",
                     textTransform: "none",
                     fontSize: "1rem",
-                    boxShadow: "0 4px 14px rgba(0, 206, 209, 0.4)",
-                    transition: "all 0.3s ease",
+                    boxShadow: "0 4px 14px rgba(183, 28, 28, 0.4)",
                   }}
-                  className="hover:bg-opacity-90 hover:translate-y-1"
+                  sx={{
+                    '&:hover': {
+                      backgroundColor: "#991515",
+                      transform: "translateY(1px)",
+                    }
+                  }}
                 >
                   Plan Your Event
                 </Button>

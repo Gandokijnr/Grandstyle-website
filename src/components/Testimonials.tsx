@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   Typography,
-  Box,
-  Container,
-  Card,
-  CardContent,
-  Rating,
 } from "@mui/material";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
@@ -18,21 +12,18 @@ const testimonials = [
     role: "Ibadan, Nigeria",
     text: "Thank you for making our wedding a grand success and adding colors to the day with your superb service. It was a well organised experience with no hassle",
     rating: 5,
-    // image: "",
   },
   {
     name: "Bukky Abike Oluderu",
     role: "Corporate Client",
     text: "The team's professionalism and innovative ideas for our product launch were truly impressive. They delivered an unforgettable experience.",
     rating: 5,
-    // image: "",
   },
   {
     name: "Hon. Rotimi",
     role: "Olasogba (Canada)",
     text: "My father's funeral celebration was a huge success because of the timely event Coordination you provided. We couldn't have had it better without you. God bless you GrandStyle Events.",
     rating: 5,
-    // image: "",
   },
 ];
 
@@ -161,16 +152,10 @@ const Testimonials = () => {
           >
             <div className="lg:grid lg:grid-cols-12">
               {/* Left decorative panel */}
-              <div className="hidden lg:block lg:col-span-4 bg-gradient-to-br from-blue-400 to-blue-950">
+              <div className="hidden lg:block lg:col-span-4 bg-gradient-to-br from-blue-900 to-gray-950">
                 <div className="h-full flex items-center justify-center p-12">
                   <div className="text-center">
-                    {/* <div className="mx-auto h-32 w-32 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                      <img
-                        src={testimonials[currentTestimonial].image}
-                        alt={testimonials[currentTestimonial].name}
-                        className="h-24 w-24 rounded-full object-cover border-4 border-white/50"
-                      />
-                    </div> */}
+                
                     <div className="mt-8 text-white">
                       <StarRating
                         rating={testimonials[currentTestimonial].rating}

@@ -38,7 +38,7 @@ const Services = () => {
       longDescription:
         "Our comprehensive planning process begins with understanding your vision and objectives. We then craft a detailed roadmap covering every aspect of your event, from initial concept to final execution. Our team handles timeline development, budget management, vendor coordination, and all the small details that make your event exceptional.",
       publicId: "services/Wedding Planning",
-      color: "#4F46E5",
+      color: "#1A237E",
       category: "planning",
       icon: <Calendar size={24} />,
       features: [
@@ -55,7 +55,7 @@ const Services = () => {
       longDescription:
         "The perfect venue is the foundation of a successful event. Our team researches and scouts locations that align with your vision, budget, and practical needs. We negotiate contracts, manage site visits, and coordinate all venue-related logistics to ensure the space works perfectly for your event requirements.",
       publicId: "landing page/d9xqwbakv6xpze5wwgke",
-      color: "#0EA5E9",
+      color: "#B71C1C",
       category: "planning",
       icon: <MapPin size={24} />,
       features: [
@@ -72,7 +72,7 @@ const Services = () => {
       longDescription:
         "From intimate gatherings to lavish celebrations, we design birthday experiences that reflect the personality and preferences of the guest of honor. Our services include theme development, activity planning, surprise coordination, and creating those special moments that will be remembered for years to come.",
       publicId: "services/Birthday Parties",
-      color: "#EC4899",
+      color: "#1A237E",
       category: "planning",
       icon: <Users size={24} />,
       features: [
@@ -89,7 +89,7 @@ const Services = () => {
       longDescription:
         "Our culinary partnerships allow us to offer exceptional food and beverage experiences. We coordinate menu development, tasting sessions, dietary accommodation, and stylish presentation. Whether you're looking for formal dining, casual buffets, or innovative food stations, we ensure your guests enjoy a memorable culinary journey.",
       publicId: "services/Gala Dinners",
-      color: "#F59E0B",
+      color: "#B71C1C",
       category: "logistics",
       icon: <Utensils size={24} />,
       features: [
@@ -106,7 +106,7 @@ const Services = () => {
       longDescription:
         "Our design team creates immersive environments that bring your event vision to life. From concept development to installation, we handle every aspect of your event's visual identity. Services include theme development, floral arrangements, lighting design, furniture selection, and custom installations that create Instagram-worthy moments.",
       publicId: "gallery/psuuqcthlvo75ltlymif",
-      color: "#10B981",
+      color: "#1A237E",
       category: "decor",
       icon: <Palette size={24} />,
       features: [
@@ -123,7 +123,7 @@ const Services = () => {
       longDescription:
         "The right entertainment transforms a good event into an unforgettable experience. We source and coordinate with top talent including bands, DJs, solo artists, and specialty performers. Our team handles all technical requirements, scheduling, and day-of coordination to ensure flawless performances that engage your guests.",
       publicId: "services/live band",
-      color: "#8B5CF6",
+      color: "#B71C1C",
       category: "entertainment",
       icon: <Music size={24} />,
       features: [
@@ -140,7 +140,7 @@ const Services = () => {
       longDescription:
         "Behind every successful event is seamless logistical execution. Our team coordinates transportation, manages security, develops contingency plans, and ensures all operational aspects run smoothly. We handle everything from guest arrivals to equipment setup, allowing you to focus on enjoying your event.",
       publicId: "services/security",
-      color: "#3B82F6",
+      color: "#1A237E",
       category: "logistics",
       icon: <Shield size={24} />,
       features: [
@@ -157,7 +157,7 @@ const Services = () => {
       longDescription:
         "For public and corporate events, effective promotion is key to success. Our marketing services include strategy development, digital campaign management, social media promotion, and press outreach. We create compelling content that drives engagement and attendance, maximizing your event's impact and reach.",
       publicId: "services/marketing team",
-      color: "#EF4444",
+      color: "#B71C1C",
       category: "logistics",
       icon: <Megaphone size={24} />,
       features: [
@@ -283,7 +283,7 @@ const Services = () => {
                   <h3
                     className="text-xl font-bold mb-3 transition-colors duration-300 flex items-center"
                     style={{
-                      color: hoveredIndex === index ? service.color : "#1E293B",
+                      color: hoveredIndex === index ? service.color : "#111827",
                     }}
                   >
                     {service.title}
@@ -327,8 +327,7 @@ const Services = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="relative mt-20 text-center p-12 rounded-2xl overflow-hidden"
           style={{
-            background:
-              "linear-gradient(135deg, #F65C5C 0%, #4A5CF6 50%, #F65C5C 100%)",
+            background: "linear-gradient(135deg, #000000 30%, #B71C1C 70%)",
           }}
         >
           {/* Background pattern */}
