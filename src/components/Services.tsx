@@ -1,22 +1,34 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Typography } from "@mui/material";
+import {
+  Typography,
+  Box,
+  Container,
+  Grid,
+  Paper,
+  Button,
+  Modal,
+  IconButton,
+  Chip,
+} from "@mui/material";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
 import { AdvancedImage } from "@cloudinary/react";
 import {
-  ArrowRight,
-  Plus,
-  Calendar,
-  MapPin,
-  Users,
-  Music,
-  Shield,
-  Megaphone,
+  CalendarToday,
+  LocationOn,
+  People,
+  MusicNote,
+  Security,
+  Campaign,
   Palette,
-  Utensils,
-} from "lucide-react";
+  Restaurant,
+  Close,
+  ArrowForward,
+  CheckCircle,
+} from "@mui/icons-material";
+import SectionTitle from "./SectionTitle";
 
 const cld = new Cloudinary({
   cloud: {
@@ -25,22 +37,19 @@ const cld = new Cloudinary({
 });
 
 const Services = () => {
-  const [activeCategory] = useState("all");
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [selectedService, setSelectedService] = useState<number | null>(null);
 
-  // Define services with added category property
   const services = [
     {
-      title: "Event Conceptualization and Planning",
+      title: "Event Conceptualization & Planning",
       description:
         "Transform your vision into reality with our expert planning services, creating events that perfectly reflect your style and needs.",
       longDescription:
         "Our comprehensive planning process begins with understanding your vision and objectives. We then craft a detailed roadmap covering every aspect of your event, from initial concept to final execution. Our team handles timeline development, budget management, vendor coordination, and all the small details that make your event exceptional.",
       publicId: "services/Wedding Planning",
-      color: "#1A237E",
-      category: "planning",
-      icon: <Calendar size={24} />,
+      color: "#00008B",
+      category: "Planning",
+      icon: <CalendarToday />,
       features: [
         "Personalized Planning",
         "Budget Management",
@@ -49,15 +58,15 @@ const Services = () => {
       ],
     },
     {
-      title: "Venue Selection and Management",
+      title: "Venue Selection & Management",
       description:
         "Find the ideal venue that sets the tone for your event and let us handle the details to ensure a seamless experience.",
       longDescription:
         "The perfect venue is the foundation of a successful event. Our team researches and scouts locations that align with your vision, budget, and practical needs. We negotiate contracts, manage site visits, and coordinate all venue-related logistics to ensure the space works perfectly for your event requirements.",
       publicId: "landing page/d9xqwbakv6xpze5wwgke",
-      color: "#B71C1C",
-      category: "planning",
-      icon: <MapPin size={24} />,
+      color: "#900000",
+      category: "Planning",
+      icon: <LocationOn />,
       features: [
         "Venue Scouting",
         "Contract Negotiation",
@@ -72,9 +81,9 @@ const Services = () => {
       longDescription:
         "From intimate gatherings to lavish celebrations, we design birthday experiences that reflect the personality and preferences of the guest of honor. Our services include theme development, activity planning, surprise coordination, and creating those special moments that will be remembered for years to come.",
       publicId: "services/Birthday Parties",
-      color: "#1A237E",
-      category: "planning",
-      icon: <Users size={24} />,
+      color: "#40E0D0",
+      category: "Events",
+      icon: <People />,
       features: [
         "Themed Experiences",
         "Custom Activities",
@@ -83,15 +92,15 @@ const Services = () => {
       ],
     },
     {
-      title: "Catering and Beverage Services",
+      title: "Catering & Beverage Services",
       description:
         "Indulge your guests with exquisite cuisine and refreshing drinks, crafted to elevate any event with culinary delight.",
       longDescription:
         "Our culinary partnerships allow us to offer exceptional food and beverage experiences. We coordinate menu development, tasting sessions, dietary accommodation, and stylish presentation. Whether you're looking for formal dining, casual buffets, or innovative food stations, we ensure your guests enjoy a memorable culinary journey.",
       publicId: "services/Gala Dinners",
-      color: "#B71C1C",
-      category: "logistics",
-      icon: <Utensils size={24} />,
+      color: "#900000",
+      category: "Catering",
+      icon: <Restaurant />,
       features: [
         "Menu Development",
         "Beverage Programming",
@@ -100,15 +109,15 @@ const Services = () => {
       ],
     },
     {
-      title: "Decor and Design",
+      title: "Decor & Design",
       description:
         "Make a bold statement with stunning decor that transforms any space, creating an unforgettable ambiance for your event.",
       longDescription:
         "Our design team creates immersive environments that bring your event vision to life. From concept development to installation, we handle every aspect of your event's visual identity. Services include theme development, floral arrangements, lighting design, furniture selection, and custom installations that create Instagram-worthy moments.",
       publicId: "gallery/psuuqcthlvo75ltlymif",
-      color: "#1A237E",
-      category: "decor",
-      icon: <Palette size={24} />,
+      color: "#00008B",
+      category: "Design",
+      icon: <Palette />,
       features: [
         "Theme Development",
         "Floral Design",
@@ -123,9 +132,9 @@ const Services = () => {
       longDescription:
         "The right entertainment transforms a good event into an unforgettable experience. We source and coordinate with top talent including bands, DJs, solo artists, and specialty performers. Our team handles all technical requirements, scheduling, and day-of coordination to ensure flawless performances that engage your guests.",
       publicId: "services/live band",
-      color: "#B71C1C",
-      category: "entertainment",
-      icon: <Music size={24} />,
+      color: "#40E0D0",
+      category: "Entertainment",
+      icon: <MusicNote />,
       features: [
         "Talent Booking",
         "Performance Scheduling",
@@ -133,372 +142,460 @@ const Services = () => {
         "Custom Programming",
       ],
     },
-    {
-      title: "Security and Logistics",
-      description:
-        "Rest easy knowing that your event is in safe hands, with our expert team handling security, logistics, and flawless execution.",
-      longDescription:
-        "Behind every successful event is seamless logistical execution. Our team coordinates transportation, manages security, develops contingency plans, and ensures all operational aspects run smoothly. We handle everything from guest arrivals to equipment setup, allowing you to focus on enjoying your event.",
-      publicId: "services/security",
-      color: "#1A237E",
-      category: "logistics",
-      icon: <Shield size={24} />,
-      features: [
-        "Transportation Coordination",
-        "Security Planning",
-        "Contingency Management",
-        "On-site Operations",
-      ],
-    },
-    {
-      title: "Marketing and Promotion",
-      description:
-        "Amplify your event's reach with our strategic marketing services, ensuring it captures the attention of your ideal audience.",
-      longDescription:
-        "For public and corporate events, effective promotion is key to success. Our marketing services include strategy development, digital campaign management, social media promotion, and press outreach. We create compelling content that drives engagement and attendance, maximizing your event's impact and reach.",
-      publicId: "services/marketing team",
-      color: "#B71C1C",
-      category: "logistics",
-      icon: <Megaphone size={24} />,
-      features: [
-        "Strategy Development",
-        "Digital Campaigns",
-        "Media Relations",
-        "Content Creation",
-      ],
-    },
   ];
 
-  // Filter services based on active category
-  const filteredServices =
-    activeCategory === "all"
-      ? services
-      : services.filter((service) => service.category === activeCategory);
-
-  // Card hover effects
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-    hover: { y: -10, transition: { duration: 0.2 } },
-  };
-
-  // Handle service selection for detailed view
   const handleServiceClick = (index: number) => {
     setSelectedService(index);
   };
 
-  // Close detailed view
-  const handleCloseDetails = () => {
+  const handleCloseModal = () => {
     setSelectedService(null);
   };
 
-  // Animation variants for detail modal
-  const modalVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
-  };
-
   return (
-    <section id="services" className=" bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-6xl mx-auto px-4">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
-        >
-          <Typography variant="h3" className="text-4xl font-bold mb-3">
-            Our Services
-          </Typography>
-          <div className="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
-          <Typography
-            variant="subtitle1"
-            className="text-gray-600 max-w-auto mx-auto"
-          >
-            Comprehensive event planning solutions tailored to create memorable
-            experiences for your special occasions
-          </Typography>
-        </motion.div>
+    <Box
+      id="services"
+      sx={{
+        py: { xs: 8, md: 12 },
+        background: "linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%)",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Background Elements */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          opacity: 0.03,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M50 50c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}
+      />
+
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <SectionTitle
+          subtitle="What We Do"
+          title="Our Premium Services"
+          description="From intimate gatherings to grand celebrations, we provide comprehensive event planning services that bring your vision to life with African elegance and modern sophistication."
+        />
 
         {/* Services Grid */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: {},
-            visible: {
-              transition: { staggerChildren: 0.1 },
-            },
-          }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {filteredServices.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              whileHover="hover"
-              onClick={() => handleServiceClick(index)}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              className="h-full cursor-pointer"
-            >
-              <div className="relative h-full overflow-hidden rounded-xl shadow-lg bg-white transition-shadow duration-300 hover:shadow-xl">
-                {/* Image with gradient overlay */}
-                <div className="relative h-48 overflow-hidden">
-                  <AdvancedImage
-                    cldImg={cld
-                      .image(service.publicId)
-                      .resize(
-                        fill().width(600).height(400).gravity(autoGravity())
-                      )
-                      .quality("auto")
-                      .format("auto")}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-
-                  {/* Overlay */}
-                  <div
-                    className="absolute inset-0 opacity-40 transition-opacity duration-300"
-                    style={{
-                      background: `linear-gradient(135deg, ${service.color} 0%, transparent 70%)`,
-                    }}
-                  ></div>
-
-                  {/* Icon with circle background */}
-                  <div
-                    className="absolute top-4 right-4 p-2 rounded-full"
-                    style={{
-                      backgroundColor: `${service.color}`,
-                      color: "white",
-                    }}
-                  >
-                    {service.icon}
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3
-                    className="text-xl font-bold mb-3 transition-colors duration-300 flex items-center"
-                    style={{
-                      color: hoveredIndex === index ? service.color : "#111827",
-                    }}
-                  >
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    {service.description}
-                  </p>
-
-                  {/* View Details Button */}
-                  <motion.div
-                    className="flex items-center text-sm font-medium mt-2"
-                    initial={{ opacity: 0.8 }}
-                    animate={{
-                      opacity: hoveredIndex === index ? 1 : 0.8,
-                      x: hoveredIndex === index ? 5 : 0,
-                    }}
-                    style={{ color: service.color }}
-                  >
-                    View Details <ArrowRight size={16} className="ml-1" />
-                  </motion.div>
-                </div>
-
-                {/* Side accent bar that grows on hover */}
-                <motion.div
-                  className="absolute left-0 top-0 h-full w-1"
-                  animate={{
-                    width: hoveredIndex === index ? "4px" : "2px",
+        <Grid container spacing={4}>
+          {services.map((service, index) => (
+            <Grid item xs={12} md={6} lg={4} key={index}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Paper
+                  elevation={0}
+                  sx={{
+                    height: "100%",
+                    borderRadius: 4,
+                    overflow: "hidden",
+                    border: "1px solid",
+                    borderColor: "divider",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    position: "relative",
+                    "&:hover": {
+                      transform: "translateY(-8px)",
+                      boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                      borderColor: service.color,
+                      "& .service-image": {
+                        transform: "scale(1.05)",
+                      },
+                      "& .service-overlay": {
+                        opacity: 0.8,
+                      },
+                    },
                   }}
-                  transition={{ duration: 0.3 }}
-                  style={{ backgroundColor: service.color }}
-                ></motion.div>
-              </div>
-            </motion.div>
+                  onClick={() => handleServiceClick(index)}
+                >
+                  {/* Image Section */}
+                  <Box sx={{ position: "relative", height: 240, overflow: "hidden" }}>
+                    <AdvancedImage
+                      cldImg={cld
+                        .image(service.publicId)
+                        .resize(fill().width(600).height(400).gravity(autoGravity()))
+                        .quality("auto:best")
+                        .format("auto")}
+                      alt={service.title}
+                      className="service-image"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        transition: "transform 0.5s ease",
+                      }}
+                    />
+                    
+                    {/* Overlay */}
+                    <Box
+                      className="service-overlay"
+                      sx={{
+                        position: "absolute",
+                        inset: 0,
+                        background: `linear-gradient(135deg, ${service.color}40 0%, transparent 70%)`,
+                        opacity: 0.6,
+                        transition: "opacity 0.3s ease",
+                      }}
+                    />
+
+                    {/* Category Chip */}
+                    <Chip
+                      label={service.category}
+                      size="small"
+                      sx={{
+                        position: "absolute",
+                        top: 16,
+                        left: 16,
+                        backgroundColor: service.color,
+                        color: "white",
+                        fontWeight: 600,
+                        fontSize: "0.75rem",
+                      }}
+                    />
+
+                    {/* Icon */}
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        bottom: 16,
+                        right: 16,
+                        width: 48,
+                        height: 48,
+                        borderRadius: "50%",
+                        backgroundColor: "white",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: service.color,
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                      }}
+                    >
+                      {service.icon}
+                    </Box>
+                  </Box>
+
+                  {/* Content Section */}
+                  <Box sx={{ p: 3 }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: 700,
+                        mb: 2,
+                        color: "text.primary",
+                        fontSize: "1.125rem",
+                      }}
+                    >
+                      {service.title}
+                    </Typography>
+                    
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: "text.secondary",
+                        mb: 3,
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      {service.description}
+                    </Typography>
+
+                    <Button
+                      variant="text"
+                      endIcon={<ArrowForward />}
+                      sx={{
+                        color: service.color,
+                        fontWeight: 600,
+                        p: 0,
+                        "&:hover": {
+                          backgroundColor: "transparent",
+                          "& .MuiButton-endIcon": {
+                            transform: "translateX(4px)",
+                          },
+                        },
+                        "& .MuiButton-endIcon": {
+                          transition: "transform 0.2s ease",
+                        },
+                      }}
+                    >
+                      View Details
+                    </Button>
+                  </Box>
+                </Paper>
+              </motion.div>
+            </Grid>
           ))}
-        </motion.div>
+        </Grid>
 
         {/* CTA Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative mt-20 text-center p-12 rounded-2xl overflow-hidden"
-          style={{
-            background: "linear-gradient(135deg, #000000 30%, #B71C1C 70%)",
-          }}
         >
-          {/* Background pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute right-0 bottom-0 w-64 h-64 rounded-full bg-white transform translate-x-1/4 translate-y-1/4"></div>
-            <div className="absolute left-0 top-0 w-48 h-48 rounded-full bg-white transform -translate-x-1/4 -translate-y-1/4"></div>
-          </div>
-
-          <div className="relative z-10">
-            <h3 className="text-3xl font-bold mb-4 text-white">
-              Ready to Elevate Your Next Event?
-            </h3>
-            <p className="text-white text-opacity-90 mb-8 max-w-2xl mx-auto">
-              Discover how our comprehensive services can transform your event
-              vision into reality. Let's create something extraordinary
-              together.
-            </p>
-            <motion.a
+          <Box
+            sx={{
+              mt: 10,
+              p: { xs: 4, md: 6 },
+              borderRadius: 4,
+              background: "linear-gradient(135deg, #00008B 0%, #4169E1 100%)",
+              textAlign: "center",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                color: "white",
+                fontWeight: 700,
+                mb: 2,
+                fontSize: { xs: "1.75rem", md: "2.5rem" },
+              }}
+            >
+              Ready to Plan Your Dream Event?
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                color: "rgba(255,255,255,0.9)",
+                mb: 4,
+                fontSize: { xs: "1rem", md: "1.25rem" },
+              }}
+            >
+              Let's discuss your vision and create something extraordinary together
+            </Typography>
+            <Button
+              variant="contained"
+              size="large"
               href="https://wa.me/2348137635064"
               target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block px-10 py-4 bg-white text-indigo-700 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+              sx={{
+                px: 5,
+                py: 2,
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                borderRadius: "50px",
+                backgroundColor: "white",
+                color: "primary.main",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  backgroundColor: "#40E0D0",
+                  color: "white",
+                  transform: "translateY(-3px)",
+                  boxShadow: "0 12px 48px rgba(0,0,0,0.3)",
+                },
+              }}
             >
-              Request a Free Consultation
-            </motion.a>
-          </div>
+              Get Free Consultation
+            </Button>
+          </Box>
         </motion.div>
-      </div>
+      </Container>
 
       {/* Service Detail Modal */}
-      <AnimatePresence>
-        {selectedService !== null && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={handleCloseDetails}
-          >
+      <Modal
+        open={selectedService !== null}
+        onClose={handleCloseModal}
+        aria-labelledby="service-modal-title"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          p: 2,
+        }}
+      >
+        <AnimatePresence>
+          {selectedService !== null && (
             <motion.div
-              className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
-              variants={modalVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              style={{
+                maxWidth: "800px",
+                width: "100%",
+                maxHeight: "90vh",
+                overflow: "auto",
+                outline: "none",
+              }}
             >
-              <div className="relative">
-                {/* Header image */}
-                <div className="h-56 relative">
+              <Paper
+                elevation={24}
+                sx={{
+                  borderRadius: 4,
+                  overflow: "hidden",
+                  position: "relative",
+                }}
+              >
+                {/* Close Button */}
+                <IconButton
+                  onClick={handleCloseModal}
+                  sx={{
+                    position: "absolute",
+                    top: 16,
+                    right: 16,
+                    zIndex: 10,
+                    backgroundColor: "rgba(255,255,255,0.9)",
+                    "&:hover": {
+                      backgroundColor: "white",
+                    },
+                  }}
+                >
+                  <Close />
+                </IconButton>
+
+                {/* Header Image */}
+                <Box sx={{ position: "relative", height: 250 }}>
                   <AdvancedImage
                     cldImg={cld
                       .image(services[selectedService].publicId)
-                      .resize(
-                        fill().width(1200).height(450).gravity(autoGravity())
-                      )
-                      .quality("auto")
+                      .resize(fill().width(800).height(300).gravity(autoGravity()))
+                      .quality("auto:best")
                       .format("auto")}
                     alt={services[selectedService].title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div
-                    className="absolute inset-0"
                     style={{
-                      background: `linear-gradient(to bottom, transparent 0%, ${services[selectedService].color}CC 100%)`,
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
                     }}
-                  ></div>
-
-                  {/* Close button */}
-                  <button
-                    className="absolute top-4 right-4 bg-white p-2 rounded-full shadow-lg"
-                    onClick={handleCloseDetails}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M18 6 6 18" />
-                      <path d="m6 6 12 12" />
-                    </svg>
-                  </button>
-                </div>
+                  />
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      inset: 0,
+                      background: `linear-gradient(to bottom, transparent 0%, ${services[selectedService].color}60 100%)`,
+                    }}
+                  />
+                </Box>
 
                 {/* Content */}
-                <div className="p-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div
-                      className="p-3 rounded-full"
-                      style={{
-                        backgroundColor: `${services[selectedService].color}20`,
+                <Box sx={{ p: { xs: 3, md: 5 } }}>
+                  {/* Header */}
+                  <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
+                    <Box
+                      sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: 2,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        backgroundColor: `${services[selectedService].color}15`,
+                        color: services[selectedService].color,
+                        mr: 3,
                       }}
                     >
                       {services[selectedService].icon}
-                    </div>
-                    <h2
-                      className="text-3xl font-bold"
-                      style={{ color: services[selectedService].color }}
-                    >
-                      {services[selectedService].title}
-                    </h2>
-                  </div>
+                    </Box>
+                    <Box>
+                      <Typography
+                        variant="h4"
+                        sx={{
+                          fontWeight: 700,
+                          color: services[selectedService].color,
+                          fontSize: { xs: "1.5rem", md: "2rem" },
+                        }}
+                      >
+                        {services[selectedService].title}
+                      </Typography>
+                      <Chip
+                        label={services[selectedService].category}
+                        size="small"
+                        sx={{
+                          mt: 1,
+                          backgroundColor: `${services[selectedService].color}15`,
+                          color: services[selectedService].color,
+                        }}
+                      />
+                    </Box>
+                  </Box>
 
-                  <p className="text-gray-700 mb-8 text-lg leading-relaxed">
+                  {/* Description */}
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      mb: 4,
+                      lineHeight: 1.8,
+                      fontSize: "1.125rem",
+                      color: "text.primary",
+                    }}
+                  >
                     {services[selectedService].longDescription}
-                  </p>
+                  </Typography>
 
                   {/* Features */}
-                  <div className="mb-8">
-                    <h3 className="text-xl font-semibold mb-4 text-gray-800">
-                      What We Offer
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {services[selectedService].features.map(
-                        (feature, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center p-3 rounded-lg"
-                            style={{
-                              backgroundColor: `${services[selectedService].color}10`,
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 600,
+                      mb: 3,
+                      color: "text.primary",
+                    }}
+                  >
+                    What's Included
+                  </Typography>
+                  <Grid container spacing={2} sx={{ mb: 4 }}>
+                    {services[selectedService].features.map((feature, idx) => (
+                      <Grid item xs={12} sm={6} key={idx}>
+                        <Box sx={{ display: "flex", alignItems: "center" }}>
+                          <CheckCircle
+                            sx={{
+                              color: services[selectedService].color,
+                              mr: 2,
+                              fontSize: "1.25rem",
                             }}
-                          >
-                            <div
-                              className="mr-3 p-1 rounded-full"
-                              style={{
-                                backgroundColor:
-                                  services[selectedService].color,
-                                color: "white",
-                              }}
-                            >
-                              <Plus size={16} />
-                            </div>
-                            <span className="font-medium">{feature}</span>
-                          </div>
-                        )
-                      )}
-                    </div>
-                  </div>
+                          />
+                          <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                            {feature}
+                          </Typography>
+                        </Box>
+                      </Grid>
+                    ))}
+                  </Grid>
 
                   {/* CTA */}
-                  <div className="mt-8 flex justify-center md:justify-end">
-                    <motion.a
+                  <Box sx={{ textAlign: "center" }}>
+                    <Button
+                      variant="contained"
+                      size="large"
                       href="https://wa.me/2348137635064"
                       target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium shadow-md text-white transition-all duration-300"
-                      style={{
+                      sx={{
+                        px: 5,
+                        py: 2,
+                        borderRadius: "50px",
                         backgroundColor: services[selectedService].color,
+                        fontWeight: 600,
+                        fontSize: "1.1rem",
+                        "&:hover": {
+                          backgroundColor: services[selectedService].color,
+                          filter: "brightness(0.9)",
+                          transform: "translateY(-2px)",
+                        },
                       }}
+                      endIcon={<ArrowForward />}
                     >
                       Inquire About This Service
-                      <ArrowRight size={18} />
-                    </motion.a>
-                  </div>
-                </div>
-              </div>
+                    </Button>
+                  </Box>
+                </Box>
+              </Paper>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </section>
+          )}
+        </AnimatePresence>
+      </Modal>
+    </Box>
   );
 };
 

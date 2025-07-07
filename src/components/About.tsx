@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Typography, Tabs, Tab, Box } from "@mui/material";
+import { Typography, Tabs, Tab, Box, Container, Grid, Paper } from "@mui/material";
 import { AdvancedImage } from "@cloudinary/react";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Star, Award, Users } from "lucide-react";
+import SectionTitle from "./SectionTitle";
 
 // Initialize Cloudinary
 const cld = new Cloudinary({
@@ -27,7 +28,8 @@ const About = () => {
       content:
         "At GrandStyle Events, we transform your dreams into reality with seamless event planning and execution. From luxury weddings to corporate gatherings and milestone celebrations, we ensure every detail is handled with expertise, creativity, and precision.",
       publicId: "about/nbwgtwfgjvbalbvvdohy",
-      color: "#B71C1C",
+      color: "#900000",
+      icon: <Award size={32} />,
       accentPoints: [
         "Established 2012",
         "Industry Leaders",
@@ -39,7 +41,8 @@ const About = () => {
       content:
         "We create tailored experiences that truly reflect your style with flawless execution. Our dedicated team ensures every detail is perfect, providing stress-free planning from start to finish. With over a decade of experience, we've built a reputation for excellence that our clients trust.",
       publicId: "about/why_choose_us",
-      color: "#000000",
+      color: "#00008B",
+      icon: <Star size={32} />,
       accentPoints: [
         "Client-focused",
         "Innovative Solutions",
@@ -51,9 +54,18 @@ const About = () => {
       content:
         "We follow a proven four-step process: Discovery, where we understand your vision; Design, where we create a tailored plan; Coordination, where we manage all logistics and vendors; and finally, Execution, where we bring your event to life exactly as envisioned.",
       publicId: "services/yfmibnaoapymegbn5pbo",
-      color: "#1A237E",
+      color: "#40E0D0",
+      icon: <Users size={32} />,
       accentPoints: ["Discover", "Design", "Coordinate", "Execute"],
     },
+  ];
+
+  // Stats data
+  const stats = [
+    { value: "500+", label: "Events Completed" },
+    { value: "12+", label: "Years Experience" },
+    { value: "98%", label: "Client Satisfaction" },
+    { value: "50+", label: "Team Members" },
   ];
 
   // Animation variants
@@ -62,228 +74,265 @@ const About = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.2,
       },
     },
   };
 
   const childVariant = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
   return (
-    <section
+    <Box
       id="about"
-      className="py-24 bg-gradient-to-b from-white to-gray-50"
+      component="section"
+      sx={{
+        py: { xs: 8, md: 12 },
+        background: "linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%)",
+        position: "relative",
+        overflow: "hidden",
+      }}
     >
-      <div className="max-w-6xl mx-auto px-4">
+      {/* Background Pattern */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          width: "40%",
+          height: "100%",
+          opacity: 0.02,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 30c11.046 0 20 8.954 20 20s-8.954 20-20 20-20-8.954-20-20 8.954-20 20-20zm0 10c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10z' fill='%23000000' fill-opacity='1'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "repeat",
+        }}
+      />
+
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
-        >
-          <Typography
-            variant="h3"
-            className="text-4xl font-bold mb-3"
-            style={{ fontFamily: "Cormorant Garamond" }}
-          >
-            About GrandStyle Events
-          </Typography>
-          <div className="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
-          <Typography
-            variant="subtitle1"
-            className="text-gray-600 max-w-auto mx-auto"
-            style={{ fontFamily: "Montserrat" }}
-          >
-            Crafting Unforgettable Moments, Just for You
-          </Typography>
-        </motion.div>
+        <SectionTitle
+          subtitle="Get to Know Us"
+          title="About GrandStyle Events"
+          description="Crafting unforgettable moments and bringing your dreams to life with passion, precision, and African elegance"
+        />
 
         {/* Tabbed Navigation */}
-        <Box sx={{ borderBottom: 1, borderColor: "divider", mb: 6 }}>
+        <Paper
+          elevation={0}
+          sx={{
+            borderRadius: 3,
+            overflow: "hidden",
+            mb: 6,
+            bgcolor: "transparent",
+          }}
+        >
           <Tabs
             value={activeTab}
             onChange={handleTabChange}
             variant="fullWidth"
             aria-label="about section tabs"
             sx={{
+              bgcolor: "white",
+              borderRadius: 3,
+              boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
               "& .MuiTab-root": {
-                fontSize: "1rem",
+                py: 2,
+                fontSize: { xs: "0.875rem", md: "1rem" },
                 fontWeight: 600,
-                fontFamily: "Montserrat",
                 textTransform: "none",
-                color: "#1A237E",
+                color: "text.secondary",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  color: "primary.main",
+                },
               },
               "& .Mui-selected": {
                 color: aboutContent[activeTab].color,
               },
               "& .MuiTabs-indicator": {
+                height: 3,
+                borderRadius: "3px 3px 0 0",
                 backgroundColor: aboutContent[activeTab].color,
               },
             }}
           >
             {aboutContent.map((item, index) => (
-              <Tab key={index} label={item.title} />
+              <Tab
+                key={index}
+                label={item.title}
+                icon={item.icon}
+                iconPosition="start"
+              />
             ))}
           </Tabs>
-        </Box>
+        </Paper>
 
         {/* Content Area */}
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="mb-16"
+          key={activeTab}
         >
-          {aboutContent.map((item, index) => (
-            <motion.div
-              key={index}
-              variants={childVariant}
-              className={`${activeTab === index ? "block" : "hidden"}`}
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Text Content */}
-                <div
-                  className={`order-2 ${
-                    index % 2 === 0 ? "lg:order-1" : "lg:order-2"
-                  }`}
+          <Grid container spacing={6} alignItems="center">
+            {/* Image */}
+            <Grid item xs={12} md={6}>
+              <motion.div variants={childVariant}>
+                <Box
+                  sx={{
+                    position: "relative",
+                    borderRadius: 4,
+                    overflow: "hidden",
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      top: -20,
+                      left: -20,
+                      width: 150,
+                      height: 150,
+                      bgcolor: aboutContent[activeTab].color,
+                      borderRadius: "50%",
+                      opacity: 0.1,
+                      zIndex: -1,
+                    },
+                  }}
                 >
-                  <motion.div
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <h3 className="text-3xl font-bold mb-6 relative pb-3">
-                      {item.title}
-                      <span
-                        className="absolute bottom-0 left-0 h-1 w-16"
-                        style={{ backgroundColor: item.color }}
-                      ></span>
-                    </h3>
+                  <AdvancedImage
+                    cldImg={cld
+                      .image(aboutContent[activeTab].publicId)
+                      .resize(fill().width(800).height(600).gravity(autoGravity()))
+                      .quality("auto:best")
+                      .format("auto")}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      display: "block",
+                    }}
+                    alt={aboutContent[activeTab].title}
+                  />
+                </Box>
+              </motion.div>
+            </Grid>
 
-                    <p className="text-gray-700 leading-relaxed mb-8 text-lg">
-                      {item.content}
-                    </p>
-
-                    <h4 className="font-semibold mb-4 text-gray-800">
-                      What Sets Us Apart:
-                    </h4>
-
-                    <div className="space-y-3 mb-8">
-                      {item.accentPoints.map((point, idx) => (
-                        <div key={idx} className="flex items-center">
-                          <CheckCircle
-                            size={20}
-                            style={{ color: item.color }}
-                            className="mr-3 flex-shrink-0"
-                          />
-                          <span className="text-gray-700">{point}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Image with animation */}
-                <div
-                  className={`order-1 ${
-                    index % 2 === 0 ? "lg:order-2" : "lg:order-1"
-                  }`}
+            {/* Text Content */}
+            <Grid item xs={12} md={6}>
+              <motion.div variants={childVariant}>
+                <Typography
+                  variant="h3"
+                  sx={{
+                    color: aboutContent[activeTab].color,
+                    fontFamily: '"Playfair Display", serif',
+                    fontWeight: 700,
+                    mb: 3,
+                    fontSize: { xs: "2rem", md: "2.5rem" },
+                  }}
                 >
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6 }}
-                    className="relative overflow-hidden rounded-xl shadow-xl"
-                  >
-                    <div className="relative group aspect-w-16 aspect-h-9">
-                      <AdvancedImage
-                        cldImg={cld
-                          .image(item.publicId)
-                          .resize(
-                            fill().width(600).height(400).gravity(autoGravity())
-                          )
-                          .quality("auto")
-                          .format("auto")}
-                        alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-xl"
-                      />
+                  {aboutContent[activeTab].title}
+                </Typography>
 
-                      {/* Decorative elements */}
-                      <div
-                        className="absolute inset-0 opacity-30 rounded-xl"
-                        style={{
-                          background: `linear-gradient(45deg, ${item.color} 0%, transparent 70%)`,
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: "text.primary",
+                    mb: 4,
+                    fontSize: { xs: "1rem", md: "1.125rem" },
+                    lineHeight: 1.8,
+                  }}
+                >
+                  {aboutContent[activeTab].content}
+                </Typography>
+
+                {/* Accent Points */}
+                <Box sx={{ mb: 4 }}>
+                  {aboutContent[activeTab].accentPoints.map((point, idx) => (
+                    <motion.div
+                      key={idx}
+                      variants={childVariant}
+                      custom={idx}
+                    >
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          mb: 2,
                         }}
-                      ></div>
-
-                      {/* Corner effect */}
-                      <div
-                        className="absolute top-0 left-0 w-24 h-24 opacity-80"
-                        style={{
-                          background: `linear-gradient(135deg, ${item.color} 0%, transparent 100%)`,
-                          borderTopLeftRadius: "0.75rem",
-                        }}
-                      ></div>
-
-                      {/* Border accent */}
-                      <div
-                        className={`absolute ${
-                          index % 2 === 0 ? "left-0" : "right-0"
-                        } top-0 w-2 h-full`}
-                        style={{ backgroundColor: item.color }}
-                      ></div>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                      >
+                        <CheckCircle
+                          size={24}
+                          style={{
+                            color: aboutContent[activeTab].color,
+                            marginRight: 12,
+                          }}
+                        />
+                        <Typography
+                          variant="body1"
+                          sx={{
+                            fontWeight: 500,
+                            color: "text.primary",
+                          }}
+                        >
+                          {point}
+                        </Typography>
+                      </Box>
+                    </motion.div>
+                  ))}
+                </Box>
+              </motion.div>
+            </Grid>
+          </Grid>
         </motion.div>
 
-        {/* CTA Section */}
+        {/* Stats Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative mt-20 text-center p-12 rounded-2xl overflow-hidden"
-          style={{
-            background:
-            "linear-gradient(135deg, #B71C1C 0%, #000000 70%)",
-          }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {/* Background pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute right-0 bottom-0 w-64 h-64 rounded-full bg-white transform translate-x-1/4 translate-y-1/4"></div>
-            <div className="absolute left-0 top-0 w-48 h-48 rounded-full bg-white transform -translate-x-1/4 -translate-y-1/4"></div>
-          </div>
-
-          <div className="relative z-10">
-            <h3 className="text-3xl font-bold mb-4 text-white">
-              Ready to Create Something Memorable?
-            </h3>
-            <p className="text-white text-opacity-90 mb-8 max-w-2xl mx-auto">
-              Partner with GrandStyle Events to bring your vision to life. Our
-              team is passionate about creating exceptional experiences tailored
-              to your unique needs.
-            </p>
-            <motion.a
-              href="https://wa.me/2348137635064"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block px-10 py-4 bg-white text-indigo-700 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Get in Touch
-            </motion.a>
-          </div>
+          <Grid
+            container
+            spacing={3}
+            sx={{
+              mt: 8,
+              p: { xs: 3, md: 5 },
+              bgcolor: "white",
+              borderRadius: 4,
+              boxShadow: "0 10px 40px rgba(0,0,0,0.08)",
+            }}
+          >
+            {stats.map((stat, index) => (
+              <Grid item xs={6} md={3} key={index}>
+                <Box sx={{ textAlign: "center" }}>
+                  <Typography
+                    variant="h3"
+                    sx={{
+                      color: "primary.main",
+                      fontWeight: 700,
+                      fontSize: { xs: "2rem", md: "2.5rem" },
+                      mb: 1,
+                    }}
+                  >
+                    {stat.value}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: "text.secondary",
+                      fontSize: { xs: "0.875rem", md: "1rem" },
+                      fontWeight: 500,
+                    }}
+                  >
+                    {stat.label}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
         </motion.div>
-      </div>
-    </section>
+      </Container>
+    </Box>
   );
 };
 

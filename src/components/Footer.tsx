@@ -1,111 +1,421 @@
 import React from "react";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  Button,
+  IconButton,
+  Divider,
+  Link,
+} from "@mui/material";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  LinkedIn,
+  WhatsApp,
+  Email,
+  Phone,
+  LocationOn,
+  ArrowUpward,
+} from "@mui/icons-material";
+import { motion } from "framer-motion";
 
-const Footer = () => {
+const Footer: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const footerLinks = [
+    { title: "About Us", href: "#about" },
+    { title: "Our Services", href: "#services" },
+    { title: "Gallery", href: "#gallery" },
+    { title: "Testimonials", href: "#testimonials" },
+    { title: "Contact", href: "#contact" },
+  ];
+
+  const socialLinks = [
+    {
+      icon: <Facebook />,
+      url: "https://www.facebook.com/grandstyle.event",
+      color: "#1877F2",
+      name: "Facebook",
+    },
+    {
+      icon: <Instagram />,
+      url: "https://www.instagram.com/grandstyle.events?utm_source=qr&igsh=YWVtd2UxMHJkN3Nk",
+      color: "linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4)",
+      name: "Instagram",
+    },
+    {
+      icon: <Twitter />,
+      url: "https://www.twitter.com/grandstyleevents",
+      color: "#1DA1F2",
+      name: "Twitter",
+    },
+    {
+      icon: <LinkedIn />,
+      url: "https://www.linkedin.com/company/grandstyleevents/",
+      color: "#0077B5",
+      name: "LinkedIn",
+    },
+    {
+      icon: <WhatsApp />,
+      url: "https://wa.me/2348137635064",
+      color: "#25D366",
+      name: "WhatsApp",
+    },
+  ];
+
+  const contactInfo = [
+    {
+      icon: <Phone />,
+      title: "Call Us",
+      content: "+234 806 509 8130",
+      link: "tel:+2348065098130",
+    },
+    {
+      icon: <Email />,
+      title: "Email Us",
+      content: "info@grandstylevents.com",
+      link: "mailto:info@grandstylevents.com",
+    },
+    {
+      icon: <LocationOn />,
+      title: "Visit Us",
+      content: "Ondo, Lagos & Abuja, Nigeria",
+    },
+  ];
+
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-6xl mx-auto px-4">
-        {/* Top Section with Company Info */}
-        <div className="text-center mb-10">
-          <h2 className="text-blue-400 font-bold text-2xl mb-3">
-            Grandstyle Events
-          </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-            Creating unforgettable experiences since 2012. We specialize in
-            weddings, corporate events, and milestone celebrations.
-          </p>
-        </div>
+    <Box
+      component="footer"
+      sx={{
+        background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)",
+        color: "white",
+        position: "relative",
+        overflow: "hidden",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "1px",
+          background: "linear-gradient(90deg, transparent 0%, #40E0D0 50%, transparent 100%)",
+        },
+      }}
+    >
+      {/* Background Pattern */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          opacity: 0.05,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}
+      />
 
-        {/* Social Media Section */}
-        <div className="flex justify-center space-x-6 mb-10">
-          <a
-            href="https://www.facebook.com/grandstyle.event"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full transition duration-300"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z" />
-            </svg>
-          </a>
-          <a
-            href="https://www.twitter.com/grandstyleevents"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-400 hover:bg-blue-500 text-white p-3 rounded-full transition duration-300"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-            </svg>
-          </a>
-          <a
-            href="https://www.instagram.com/grandstyle.events?utm_source=qr&igsh=YWVtd2UxMHJkN3Nk "
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-full transition duration-300"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-            </svg>
-          </a>
-          <a
-            href="https://www.linkedin.com/company/grandstyleevents/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-700 hover:bg-blue-800 text-white p-3 rounded-full transition duration-300"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
-            </svg>
-          </a>
-        </div>
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        {/* Main Footer Content */}
+        <Box sx={{ py: { xs: 6, md: 8 } }}>
+          <Grid container spacing={4}>
+            {/* Company Info */}
+            <Grid item xs={12} md={4}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <Box sx={{ mb: 4 }}>
+                  <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
+                    <Box
+                      component="img"
+                      src="https://res.cloudinary.com/wintan1418/image/upload/c_thumb,w_200,g_face/v1743877057/logo%20folder/grandstyle%20logo.png"
+                      alt="Grandstyle Events"
+                      sx={{
+                        height: 50,
+                        width: "auto",
+                        mr: 2,
+                        filter: "brightness(1.2)",
+                      }}
+                    />
+                    <Box>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          fontFamily: '"Playfair Display", serif',
+                          fontWeight: 700,
+                          color: "white",
+                          lineHeight: 1,
+                        }}
+                      >
+                        Grandstyle
+                      </Typography>
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          color: "#40E0D0",
+                          fontSize: "0.9rem",
+                          letterSpacing: 2,
+                          textTransform: "uppercase",
+                        }}
+                      >
+                        Events
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: "rgba(255,255,255,0.8)",
+                      lineHeight: 1.8,
+                      mb: 3,
+                    }}
+                  >
+                    Creating unforgettable experiences since 2012. We specialize in 
+                    African-inspired celebrations, weddings, corporate events, and 
+                    milestone celebrations with worldwide service.
+                  </Typography>
+                  
+                  {/* Social Media Icons */}
+                  <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+                    {socialLinks.map((social, index) => (
+                      <IconButton
+                        key={index}
+                        component="a"
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{
+                          background: typeof social.color === "string" && social.color.includes("gradient")
+                            ? social.color
+                            : social.color,
+                          color: "white",
+                          transition: "all 0.3s ease",
+                          "&:hover": {
+                            transform: "translateY(-3px) scale(1.1)",
+                            boxShadow: `0 8px 25px ${typeof social.color === "string" && !social.color.includes("gradient") ? social.color + "40" : "rgba(64,224,208,0.3)"}`,
+                          },
+                        }}
+                      >
+                        {social.icon}
+                      </IconButton>
+                    ))}
+                  </Box>
+                </Box>
+              </motion.div>
+            </Grid>
 
-        {/* Navigation Links - Horizontal */}
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-10">
-          <a
-            href="#about"
-            className="text-gray-300 hover:text-blue-400 transition duration-300"
-          >
-            About Us
-          </a>
-          <a
-            href="#services"
-            className="text-gray-300 hover:text-blue-400 transition duration-300"
-          >
-            Our Services
-          </a>
-          <a
-            href="#gallery"
-            className="text-gray-300 hover:text-blue-400 transition duration-300"
-          >
-            Event Gallery
-          </a>
-          <a
-            href="#testimonials"
-            className="text-gray-300 hover:text-blue-400 transition duration-300"
-          >
-            Testimonials
-          </a>
-          <a
-            href="#contact"
-            className="text-gray-300 hover:text-blue-400 transition duration-300"
-          >
-            Contact Us
-          </a>
-        </div>
+            {/* Quick Links */}
+            <Grid item xs={12} md={4}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 700,
+                    mb: 3,
+                    color: "#40E0D0",
+                    fontSize: "1.25rem",
+                  }}
+                >
+                  Quick Links
+                </Typography>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                  {footerLinks.map((link, index) => (
+                    <Link
+                      key={index}
+                      href={link.href}
+                      sx={{
+                        color: "rgba(255,255,255,0.8)",
+                        textDecoration: "none",
+                        fontSize: "1rem",
+                        transition: "all 0.3s ease",
+                        position: "relative",
+                        "&:hover": {
+                          color: "#40E0D0",
+                          transform: "translateX(8px)",
+                        },
+                        "&::before": {
+                          content: '""',
+                          position: "absolute",
+                          left: "-16px",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                          width: "8px",
+                          height: "2px",
+                          backgroundColor: "#40E0D0",
+                          transition: "width 0.3s ease",
+                          opacity: 0,
+                        },
+                        "&:hover::before": {
+                          opacity: 1,
+                          width: "12px",
+                        },
+                      }}
+                    >
+                      {link.title}
+                    </Link>
+                  ))}
+                </Box>
+              </motion.div>
+            </Grid>
 
-        {/* Divider */}
-        <div className="border-t border-gray-800 my-6"></div>
+            {/* Contact Info */}
+            <Grid item xs={12} md={4}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 700,
+                    mb: 3,
+                    color: "#40E0D0",
+                    fontSize: "1.25rem",
+                  }}
+                >
+                  Get In Touch
+                </Typography>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+                  {contactInfo.map((contact, index) => (
+                    <Box
+                      key={index}
+                      component={contact.link ? "a" : "div"}
+                      href={contact.link}
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 2,
+                        textDecoration: "none",
+                        color: "inherit",
+                        transition: "all 0.3s ease",
+                        ...(contact.link && {
+                          "&:hover": {
+                            color: "#40E0D0",
+                            transform: "translateX(4px)",
+                          },
+                        }),
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: 40,
+                          height: 40,
+                          borderRadius: "50%",
+                          backgroundColor: "rgba(64,224,208,0.2)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#40E0D0",
+                        }}
+                      >
+                        {contact.icon}
+                      </Box>
+                      <Box>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: "rgba(255,255,255,0.6)",
+                            fontSize: "0.875rem",
+                          }}
+                        >
+                          {contact.title}
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          sx={{
+                            color: "white",
+                            fontWeight: 500,
+                          }}
+                        >
+                          {contact.content}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  ))}
+                </Box>
+              </motion.div>
+            </Grid>
+          </Grid>
+        </Box>
 
-        {/* Copyright Section */}
-        <div className="text-center">
-          <p className="text-gray-400">
-            &copy; {new Date().getFullYear()} Grandstyle Events. All rights
-            reserved.
-          </p>
-          <p className="mt-2 text-blue-400 italic">Developed by Wintech</p>
-        </div>
-      </div>
-    </footer>
+        <Divider
+          sx={{
+            borderColor: "rgba(255,255,255,0.1)",
+            my: 4,
+          }}
+        />
+
+        {/* Bottom Footer */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            justifyContent: "space-between",
+            alignItems: "center",
+            py: 3,
+            gap: 2,
+          }}
+        >
+          <Typography
+            variant="body2"
+            sx={{
+              color: "rgba(255,255,255,0.6)",
+              fontSize: "0.875rem",
+            }}
+          >
+            © {new Date().getFullYear()} Grandstyle Events. All rights reserved.
+          </Typography>
+          
+          <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
+            <Typography
+              variant="body2"
+              sx={{
+                color: "#40E0D0",
+                fontSize: "0.875rem",
+                fontStyle: "italic",
+              }}
+            >
+              Crafted with ❤️ by Wintech
+            </Typography>
+            
+            <Button
+              onClick={scrollToTop}
+              sx={{
+                minWidth: "auto",
+                width: 40,
+                height: 40,
+                borderRadius: "50%",
+                backgroundColor: "rgba(64,224,208,0.2)",
+                color: "#40E0D0",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  backgroundColor: "#40E0D0",
+                  color: "white",
+                  transform: "translateY(-3px)",
+                },
+              }}
+            >
+              <ArrowUpward />
+            </Button>
+          </Box>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 
