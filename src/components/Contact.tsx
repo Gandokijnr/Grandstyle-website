@@ -4,251 +4,403 @@ import {
   Box,
   Container,
   Button,
-  TextField,
   Grid,
   Paper,
+  IconButton,
 } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { motion } from "framer-motion";
-import { WhatsApp } from "@mui/icons-material";
-import { styled } from "@mui/material/styles";
-
-// Styled components for enhanced UI
-const StyledPaper = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(4),
-  borderRadius: "16px",
-  boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
-  borderTop: "4px solid #1976d2", // Blue border line covering the section at the top
-}));
-
-const ContactField = styled(TextField)(({ theme }) => ({
-  marginBottom: theme.spacing(2),
-  "& .MuiOutlinedInput-root": {
-    borderRadius: "10px",
-    "&:hover fieldset": {
-      borderColor: "#1976d2",
-    },
-  },
-}));
-
-const ContactButton = styled(Button)(({ theme }) => ({
-  padding: theme.spacing(1.5),
-  fontWeight: 600,
-  borderRadius: "10px",
-  backgroundColor: "#1976d2",
-  "&:hover": {
-    backgroundColor: "#1565c0",
-    boxShadow: "0 6px 20px rgba(25, 118, 210, 0.3)",
-  },
-}));
-
-const IconContainer = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(1),
-  backgroundColor: "rgba(25, 118, 210, 0.1)",
-  borderRadius: "50%",
-  marginRight: "16px",
-  display: "inline-flex",
-}));
-
-const BlinkingText = styled(Typography)`
-  @keyframes blink {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  animation: blink 1.5s infinite;
-`;
+import { WhatsApp, Instagram, Facebook, Twitter } from "@mui/icons-material";
+import SectionTitle from "./SectionTitle";
 
 const Contact: React.FC = () => {
+  const contactInfo = [
+    {
+      icon: <PhoneIcon />,
+      title: "Call Us",
+      details: ["+234 806 509 8130"],
+      link: "tel:+2348065098130",
+      color: "#00008B",
+    },
+    {
+      icon: <WhatsApp />,
+      title: "WhatsApp",
+      details: ["+234 813 763 5064"],
+      link: "https://wa.me/2348137635064",
+      color: "#25D366",
+    },
+    {
+      icon: <EmailIcon />,
+      title: "Email Us",
+      details: ["info@grandstylevents.com"],
+      link: "mailto:info@grandstylevents.com",
+      color: "#900000",
+    },
+    {
+      icon: <LocationOnIcon />,
+      title: "Visit Us",
+      details: ["Ondo, Lagos & Abuja", "Nigeria"],
+      color: "#40E0D0",
+    },
+  ];
+
+  const socialLinks = [
+    { icon: <Facebook />, url: "#", name: "Facebook" },
+    { icon: <Instagram />, url: "#", name: "Instagram" },
+    { icon: <Twitter />, url: "#", name: "Twitter" },
+    { icon: <WhatsApp />, url: "https://wa.me/2348137635064", name: "WhatsApp" },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <Box id="contact" py={12} bgcolor="#f8f9fa">
-      <Container maxWidth="md">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <Typography
-            variant="h3"
-            textAlign="center"
-            sx={{
-              color: "#1e293b",
-              fontWeight: "bold",
-              mb: 1,
-            }}
-          >
-            Let's Plan Your Next Event
-          </Typography>
-          <Typography
-            variant="body1"
-            className="text-center"
-            sx={{
-              color: "#64748b",
-              maxWidth: "650px",
-              mx: "auto",
-              mb: 4,
-            }}
-          >
-            If you're looking for a partner to help you create an unforgettable
-            event, get in touch with us today!
-          </Typography>
-        </motion.div>
-        <StyledPaper elevation={3}>
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={6}>
+    <Box
+      id="contact"
+      sx={{
+        py: { xs: 8, md: 12 },
+        background: "linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%)",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Decorative Elements */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: -100,
+          right: -100,
+          width: 300,
+          height: 300,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(64,224,208,0.1) 0%, transparent 70%)",
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: -150,
+          left: -150,
+          width: 400,
+          height: 400,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(144,0,0,0.05) 0%, transparent 70%)",
+        }}
+      />
+
+      <Container maxWidth="lg">
+        <SectionTitle
+          subtitle="Get in Touch"
+          title="Let's Create Something Amazing Together"
+          description="Ready to turn your vision into reality? We're here to help make your event unforgettable."
+        />
+
+        <Grid container spacing={4}>
+          {/* Contact Information */}
+          <Grid item xs={12} md={5}>
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
               <Typography
-                variant="h6"
-                gutterBottom
+                variant="h5"
                 sx={{
-                  color: "#1976d2",
                   fontWeight: 600,
+                  mb: 4,
+                  color: "primary.main",
                 }}
               >
-                Quick Contact
+                Reach Out to Us
               </Typography>
-              <Box display="flex" alignItems="center" mb={2} mt={6}>
-                <IconContainer>
-                  <PhoneIcon color="primary" />
-                </IconContainer>
-                <Box>
-                  <Typography
-                    variant="body2"
-                    sx={{ color: "#64748b", fontWeight: 500 }}
+
+              {contactInfo.map((item, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <Paper
+                    elevation={0}
+                    component={item.link ? "a" : "div"}
+                    href={item.link}
+                    target={item.link?.startsWith("http") ? "_blank" : undefined}
+                    rel={item.link?.startsWith("http") ? "noopener noreferrer" : undefined}
+                    sx={{
+                      p: 3,
+                      mb: 3,
+                      display: "flex",
+                      alignItems: "center",
+                      textDecoration: "none",
+                      color: "inherit",
+                      border: "1px solid",
+                      borderColor: "divider",
+                      borderRadius: 3,
+                      transition: "all 0.3s ease",
+                      cursor: item.link ? "pointer" : "default",
+                      "&:hover": {
+                        transform: "translateY(-4px)",
+                        boxShadow: "0 12px 24px rgba(0,0,0,0.1)",
+                        borderColor: item.color,
+                        "& .icon-wrapper": {
+                          transform: "rotate(360deg)",
+                          backgroundColor: item.color,
+                          color: "white",
+                        },
+                      },
+                    }}
                   >
-                    Phone
-                  </Typography>
-                  <Typography sx={{ color: "#1e293b" }}>
-                    <a
-                      href="tel:+2348065098130"
-                      style={{ textDecoration: "none", color: "inherit" }}
+                    <Box
+                      className="icon-wrapper"
+                      sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: 2,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        backgroundColor: `${item.color}15`,
+                        color: item.color,
+                        mr: 3,
+                        transition: "all 0.5s ease",
+                      }}
                     >
-                      +234 806 509 8130
-                    </a>
-                  </Typography>
-                </Box>
-              </Box>
-              <Box display="flex" alignItems="center" mb={2}>
-                <IconContainer>
-                  <WhatsApp color="primary" />
-                </IconContainer>
-                <Box>
+                      {item.icon}
+                    </Box>
+                    <Box>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: "text.secondary",
+                          fontWeight: 500,
+                          mb: 0.5,
+                        }}
+                      >
+                        {item.title}
+                      </Typography>
+                      {item.details.map((detail, idx) => (
+                        <Typography
+                          key={idx}
+                          variant="body1"
+                          sx={{
+                            color: "text.primary",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {detail}
+                        </Typography>
+                      ))}
+                    </Box>
+                  </Paper>
+                </motion.div>
+              ))}
+
+              {/* Social Links */}
+              <motion.div variants={itemVariants}>
+                <Box sx={{ mt: 4 }}>
                   <Typography
-                    variant="body2"
-                    sx={{ color: "#64748b", fontWeight: 500 }}
+                    variant="h6"
+                    sx={{
+                      fontWeight: 600,
+                      mb: 2,
+                      color: "text.primary",
+                    }}
                   >
-                    WhatsApp
+                    Follow Us
                   </Typography>
-                  <Typography sx={{ color: "#1e293b" }}>
-                    <a
-                      href="https://wa.me/2348137635064"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      +234 813 763 5064
-                    </a>
-                  </Typography>
+                  <Box sx={{ display: "flex", gap: 1 }}>
+                    {socialLinks.map((social, index) => (
+                      <IconButton
+                        key={index}
+                        component="a"
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{
+                          backgroundColor: "background.paper",
+                          border: "1px solid",
+                          borderColor: "divider",
+                          transition: "all 0.3s ease",
+                          "&:hover": {
+                            backgroundColor: "primary.main",
+                            color: "white",
+                            transform: "translateY(-3px)",
+                            boxShadow: "0 6px 20px rgba(0,0,139,0.3)",
+                          },
+                        }}
+                      >
+                        {social.icon}
+                      </IconButton>
+                    ))}
+                  </Box>
                 </Box>
-              </Box>
-              <Box display="flex" alignItems="center" mb={2}>
-                <IconContainer>
-                  <EmailIcon color="primary" />
-                </IconContainer>
-                <Box>
-                  <Typography
-                    variant="body2"
-                    sx={{ color: "#64748b", fontWeight: 500 }}
-                  >
-                    Email
-                  </Typography>
-                  <Typography sx={{ color: "#1e293b" }}>
-                    <a
-                      href="mailto:info@grandstylevents.com"
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      info@grandstylevents.com
-                    </a>
-                  </Typography>
-                </Box>
-              </Box>
-              <Box display="flex" alignItems="center">
-                <IconContainer>
-                  <LocationOnIcon color="primary" />
-                </IconContainer>
-                <Box>
-                  <Typography
-                    variant="body2"
-                    sx={{ color: "#64748b", fontWeight: 500 }}
-                  >
-                    Locations
-                  </Typography>
-                  <Typography sx={{ color: "#1e293b" }}>
-                    Ondo, Lagos and Abuja, Nigeria
-                  </Typography>
-                </Box>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Typography
-                variant="h6"
-                gutterBottom
+              </motion.div>
+            </motion.div>
+          </Grid>
+
+          {/* Contact Form */}
+          <Grid item xs={12} md={7}>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <Paper
+                elevation={0}
                 sx={{
-                  color: "#1976d2",
-                  fontWeight: 600,
-                }}
-              >
-                Request a Quote
-              </Typography>
-              <Box
-                sx={{
-                  height: "100%",
-                  minHeight: "500px",
-                  width: "100%",
+                  p: { xs: 3, md: 5 },
+                  borderRadius: 4,
+                  border: "1px solid",
+                  borderColor: "divider",
+                  background: "white",
+                  position: "relative",
                   overflow: "hidden",
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 4,
+                    background: "linear-gradient(90deg, #00008B 0%, #900000 50%, #40E0D0 100%)",
+                  },
                 }}
               >
-                <iframe
-                  src="https://docs.google.com/forms/d/e/1FAIpQLSdegjdg_uPEwxTKPxJiLDmwWv8KZIhGCgPhfZNWuXNjvRHVxg/viewform?embedded=true"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  marginHeight={0}
-                  marginWidth={0}
-                  title="Contact Form"
-                  style={{
-                    border: "none",
-                    borderRadius: "10px",
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontWeight: 600,
+                    mb: 3,
+                    color: "primary.main",
                   }}
                 >
-                  Loading…
-                </iframe>
-              </Box>
-            </Grid>
+                  Request a Quote
+                </Typography>
+                
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: { xs: 600, md: 500 },
+                    borderRadius: 2,
+                    overflow: "hidden",
+                    border: "1px solid",
+                    borderColor: "divider",
+                  }}
+                >
+                  <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdegjdg_uPEwxTKPxJiLDmwWv8KZIhGCgPhfZNWuXNjvRHVxg/viewform?embedded=true"
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    marginHeight={0}
+                    marginWidth={0}
+                    title="Contact Form"
+                    style={{
+                      border: "none",
+                    }}
+                  >
+                    Loading…
+                  </iframe>
+                </Box>
+              </Paper>
+            </motion.div>
           </Grid>
-        </StyledPaper>
-        <Box
-          mt={5}
-          textAlign="center"
-          sx={{
-            padding: "16px",
-            borderRadius: "16px",
-            color: "white",
-            boxShadow: "0 4px 20px rgba(25, 118, 210, 0.25)",
-          }}
+        </Grid>
+
+        {/* Call to Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <BlinkingText variant="h6" fontWeight="bold">
-            Note that Operation is Worldwide, Let's help you plan your next
-            event
-          </BlinkingText>
-        </Box>
+          <Box
+            sx={{
+              mt: 8,
+              p: { xs: 4, md: 6 },
+              borderRadius: 4,
+              background: "linear-gradient(135deg, #00008B 0%, #4169E1 100%)",
+              textAlign: "center",
+              position: "relative",
+              overflow: "hidden",
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                top: -50,
+                right: -50,
+                width: 200,
+                height: 200,
+                borderRadius: "50%",
+                backgroundColor: "rgba(255,255,255,0.1)",
+              },
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                color: "white",
+                fontWeight: 700,
+                mb: 2,
+                fontSize: { xs: "1.75rem", md: "2.5rem" },
+              }}
+            >
+              Ready to Make Your Event Unforgettable?
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                color: "rgba(255,255,255,0.9)",
+                mb: 4,
+                fontSize: { xs: "1rem", md: "1.25rem" },
+              }}
+            >
+              We operate worldwide and are ready to bring your vision to life
+            </Typography>
+            <Button
+              variant="contained"
+              size="large"
+              onClick={() => window.open("https://wa.me/2348137635064", "_blank")}
+              sx={{
+                px: 5,
+                py: 2,
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                borderRadius: "50px",
+                backgroundColor: "white",
+                color: "primary.main",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  backgroundColor: "#40E0D0",
+                  color: "white",
+                  transform: "translateY(-3px)",
+                  boxShadow: "0 12px 48px rgba(0,0,0,0.3)",
+                },
+              }}
+              startIcon={<WhatsApp />}
+            >
+              Chat with Us Now
+            </Button>
+          </Box>
+        </motion.div>
       </Container>
     </Box>
   );
